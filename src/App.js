@@ -2,13 +2,13 @@ import React from "react";
 import "./styles/style.css";
 import { Constant } from "./constants";
 import styled from "styled-components";
+import OpenMenu from "./components/FoodPageOpener.js";
 const { Fonts, Colors } = Constant;
 
 const App = () => {
   return (
     <Section>
-      {console.log(Colors)}
-      <h1>hello</h1>
+       <OpenMenu/>
     </Section>
   );
 };
