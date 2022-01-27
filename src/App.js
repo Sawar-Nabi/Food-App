@@ -3,13 +3,20 @@ import "./styles/style.css";
 import { Constant } from "./constants";
 import styled from "styled-components";
 import OpenComponent from "./components/openComponent/OpenComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const { Fonts, Colors } = Constant;
 
 const App = () => {
   return (
+    <BrowserRouter>
     <Section>
-      <OpenComponent/>
+    <Routes>
+    <Route path="/" element={<OpenComponent/>}/>
+    
+    </Routes>
+     
     </Section>
+    </BrowserRouter>
   );
 };
 
