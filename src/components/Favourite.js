@@ -43,7 +43,7 @@ const Section = styled.section`
   .home_card_slider {
     &::-webkit-scrollbar {
      width: 15px;
-     height: 5px;
+     height: 0px;
      background-color: ${Colors.secondaryColor};
   }
     padding: 15px 40px;

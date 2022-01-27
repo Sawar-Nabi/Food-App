@@ -58,7 +58,7 @@ const Section = styled.section`
     height: 310px;
     background-color: #fff;
     border-radius: 0.5rem;
-    box-shadow: 0 0.01rem 0.8rem grey;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.07);
     padding: 0.4rem;
     font-family: ${Fonts.primaryFont};
     display: flex;

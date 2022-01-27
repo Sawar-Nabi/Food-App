@@ -108,7 +108,7 @@ const Section = styled.section`
         margin-bottom: 1rem;
       }
       > div {
-        color: ${Colors.terteryColor};
+        color: ${Colors.terteryColor2};
         font-size: 1rem;
         letter-spacing: 0.08rem;
       }

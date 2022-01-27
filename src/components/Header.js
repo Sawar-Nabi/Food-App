@@ -8,8 +8,8 @@ import Logo from "../media/Logo.png";
 import HomeBanner from "./HomeBanner";
 import Favourite from "./Favourite";
 import HomeNav from "./HomeNav";
-import { Constant } from "../constants";
 import HomeFoodItems from "./HomeFoodItems";
+import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const Home = () => {
@@ -41,9 +41,7 @@ const Home = () => {
       <HomeBanner />
       <Favourite />
       <HomeNav />
-      <div className="food_item_container">
-        <HomeFoodItems />
-      </div>
+      <HomeFoodItems />
     </>
   );
 };
@@ -66,7 +64,7 @@ const Section = styled.section`
     div {
       display: flex;
       align-items: center;
-      color: ${Colors.terteryColor};
+      color: ${Colors.terteryColor2};
       &:first-child {
         margin-right: 6px;
       }
@@ -91,5 +89,8 @@ const Section = styled.section`
     align-items: center;
     font-size: 20px;
     color: ${Colors.terteryColor};
+  }
+  .food_item_container {
+    background-color: red;
   }
 `;

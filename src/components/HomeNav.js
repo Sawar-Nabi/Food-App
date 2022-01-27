@@ -42,8 +42,8 @@ const HomeNav = () => {
 export default HomeNav;
 
 const Section = styled.section`
-width: 100%;
-height: 3rem;
+  width: 100%;
+  height: 3rem;
   font-family: ${Fonts.primaryFont};
   margin: 1rem 0;
   overflow-y: auto;
@@ -52,7 +52,7 @@ height: 3rem;
     list-style: none;
     gap: 2rem;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     li {
       a {
         color: ${Colors.terteryColor};
