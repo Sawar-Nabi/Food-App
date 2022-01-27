@@ -1,33 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Constant } from "../constants";
 import { GoLocation } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoNotificationsOutline } from "react-icons/io5";
 import Logo from "../media/Logo.png";
+import HomeBanner from "./HomeBanner";
+import Favourite from "./Favourite";
+import HomeNav from "./HomeNav";
+import { Constant } from "../constants";
+import HomeFoodItems from "./HomeFoodItems";
 const { Fonts, Colors } = Constant;
 
 const Home = () => {
   return (
-    <Section>
-      <div className="nav_left_section">
-        <div>
-          <GoLocation />
+    <>
+      <Section>
+        <div className="nav_left_section">
+          <div>
+            <GoLocation />
+          </div>
+          <div>Dilvered to</div>
+          <div>
+            Home <IoIosArrowDown />
+          </div>
         </div>
-        <div>Dilvered to</div>
-        <div>
-          Home <IoIosArrowDown />
+
+        <div className="nav_logo">
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
         </div>
-      </div>
 
-      <div className="nav_logo">
-        <img src={Logo} alt="" />
+        <div className="nav_right_section">
+          <Link to="/">
+            <IoNotificationsOutline />
+          </Link>
+        </div>
+      </Section>
+      <HomeBanner />
+      <Favourite />
+      <HomeNav />
+      <div className="food_item_container">
+        <HomeFoodItems />
       </div>
-
-      <div className="nav_right_section">
-        <IoNotificationsOutline />
-      </div>
-    </Section>
+    </>
   );
 };
 
