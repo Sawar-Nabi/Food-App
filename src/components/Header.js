@@ -41,7 +41,16 @@ const Home = () => {
       <HomeBanner />
       <Favourite />
       <HomeNav />
-      <HomeFoodItems />
+      <Company>
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+        <HomeFoodItems />
+      </Company>
     </>
   );
 };
@@ -93,4 +102,14 @@ const Section = styled.section`
   .food_item_container {
     background-color: red;
   }
+`;
+
+const Company = styled.div`
+  width: 100%;
+  /* background-color: red; */
+  padding: 0 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 `;
