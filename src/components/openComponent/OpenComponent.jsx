@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import bannerImage from "../../media/openBanner.jpg";
-import listImage from "../../media/listContent.jpg";
 import { BsFillBookmarkFill, BsDot, BsFillStopwatchFill } from "react-icons/bs";
 import { AiFillStar, AiFillDollarCircle } from "react-icons/ai";
 import { Constant } from "../../constants";
 import { Link } from "react-router-dom";
+import CardList from "./CardList";
 
-const { Fonts, Colors, Flex, CardList } = Constant;
+const { Fonts, Colors, Flex, CardListStyle } = Constant;
 
 const OpenComponent = () => {
   return (
@@ -65,19 +65,11 @@ const OpenComponent = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="open_container_card">
-        <div className="card_list">
-          <div className="card_list_icon">
-            <img src={listImage} alt="" />
-          </div>
-          <div className="card_list_content">muneeb</div>
-        </div>
-        <div className="card_list">
-          <div className="card_list_icon">
-            <img src={listImage} alt="" />
-          </div>
-          <div className="card_list_content">muneeb</div>
+        <div className="open_container_card">
+          <CardList />
+          <CardList />
+          <CardList />
+          
         </div>
       </div>
     </Section>
@@ -103,7 +95,7 @@ const Section = styled.section`
     background-color: #fff;
     border-radius: 3rem;
     padding: 2rem;
-    
+
     .container_heading_div {
       .head {
         display: flex;
@@ -204,32 +196,13 @@ const Section = styled.section`
         }
       }
     }
-  }
-  .open_container_card {
-    padding: 2rem;
-    background-color: #fff;
-    ${Flex}
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    .card_list {
-      ${CardList}
-      
-
-      .card_list_icon {
-        height: 15rem;
-        width: 20rem;
-        img {
-          height: inherit;
-          width: inherit;
-          border-radius: 1rem;
-          object-fit: cover;
-        }
-      }
-      .card_list_content {
-        height: 8rem;
-        background-color: red;
-      }
+    .open_container_card {
+      padding: 2rem 0;
+      background-color: #fff;
+      ${Flex}
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
   }
 `;

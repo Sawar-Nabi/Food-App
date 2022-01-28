@@ -1,10 +1,11 @@
 import { Fonts } from "./Fonts";
 import { Colors } from "./Colors";
-import {Flex, CardList} from "./ReusableCode"
+import {Flex, CardListStyle,Grid} from "./ReusableCode"
 
 export const Constant = {
   Fonts,
   Colors,
   Flex,
-  CardList,
+  CardListStyle,
+  Grid,
 };

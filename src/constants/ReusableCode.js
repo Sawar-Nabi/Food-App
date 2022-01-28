@@ -4,9 +4,13 @@ export const Flex = css`
    display: flex;
    align-items: center;
 `;
-export const CardList = css`  
+export const CardListStyle = css`  
 padding: 1rem;
 box-shadow: .1rem .1rem 1rem #ccc;
-margin-top:1rem;
+margin-bottom:1rem;
 border-radius: 1rem;
+`;
+export const Grid = css`
+display: grid;
+place-items: center;
 `;
