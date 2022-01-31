@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
@@ -9,12 +9,15 @@ import HomeBanner from "./HomeBanner";
 import Favourite from "./Favourite";
 import HomeNav from "./HomeNav";
 import HomeFoodItems from "./HomeFoodItems";
+import Orderslider from "./Orderslider";
 import { Constant } from "../constants";
+import BottomMenu from "./BottomMenu";
 const { Fonts, Colors } = Constant;
 
 const Home = () => {
+  const [ slider, setslider ] = useState(10);
   return (
-    <>
+    <Fragment>
       <Section>
         <div className="nav_left_section">
           <div>
@@ -51,7 +54,11 @@ const Home = () => {
         <HomeFoodItems />
         <HomeFoodItems />
       </Company>
-    </>
+      <br />
+      <br />
+      <Orderslider />
+      <BottomMenu />
+    </Fragment>
   );
 };
 

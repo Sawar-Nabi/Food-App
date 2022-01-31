@@ -52,7 +52,7 @@ const Section = styled.section`
     list-style: none;
     gap: 2rem;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     li {
       a {
         color: ${Colors.terteryColor};

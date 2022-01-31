@@ -22,23 +22,23 @@ const HomeBanner = () => {
         <IoOptionsSharp className="search_option" />
       </div>
       <div className="banner_nav">
-        <Link to=''>
+        <Link to="">
           <img src={breakfast} alt="" />
           <div>Breakfast</div>
         </Link>
-        <Link to=''>
+        <Link to="">
           <img src={burger} alt="" />
           <div>Burger</div>
         </Link>
-        <Link to=''>
+        <Link to="">
           <img src={pizza} alt="" />
           <div>Pizza</div>
         </Link>
-        <Link to=''>
+        <Link to="">
           <img src={coffee} alt="" />
           <div>Coffee</div>
         </Link>
-        <Link to=''>
+        <Link to="">
           <img src={drink} alt="" />
           <div>Drink</div>
         </Link>
@@ -57,6 +57,11 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  &::-webkit-scrollbar {
+    width: 15px;
+    height: 0px;
+    background-color: ${Colors.secondaryColor};
+  }
   padding-top: 4rem;
   gap: 5rem;
   font-family: ${Fonts.primaryFont};
@@ -93,18 +98,18 @@ const Section = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    padding: 0 4rem;
+    gap: 2rem;
+    padding: 0 1rem;
     > a {
       display: flex;
       flex-direction: column;
       align-items: center;
       transition: .3s linear;
       &:hover {
-          transform: translateY(-10px);
+        transform: translateY(-10px);
       }
       img {
-        width: 4rem;
+        width: 2.5rem;
         margin-bottom: 1rem;
       }
       > div {

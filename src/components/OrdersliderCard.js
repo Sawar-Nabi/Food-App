@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
-import { BiTimeFive } from "react-icons/bi";
-import Card_image from "../media/Card_image.jpg";
+import { FaShoppingCart } from "react-icons/fa";
 import { Constant } from "../constants";
+import Card_image from "../media/Card_image.jpg";
 const { Fonts, Colors } = Constant;
 
 const FavouriteCard = () => {
@@ -15,27 +15,21 @@ const FavouriteCard = () => {
           <img src={Card_image} alt="" />
         </div>
         <div className="card_title">
-          <h3>Burger King</h3>
+          <h3>Burger Meel</h3>
+          <span>See</span>
         </div>
         <div className="card_subtitle">
           <ul>
-            <li>Burger</li>
-            <li>American Food</li>
-            <li>Desh Food</li>
+            <li>Burger King</li>
           </ul>
         </div>
         <div className="card_actions">
           <div>
-            <span>
-              <AiFillStar className="rating_icon" /> 4.9 (151)
-            </span>
+            <span>$5.5</span>
           </div>
           <div>
             <span>
-              <GoLocation /> (150m)
-            </span>
-            <span>
-              <BiTimeFive /> (15)
+              <FaShoppingCart />
             </span>
           </div>
         </div>
@@ -48,8 +42,6 @@ export default FavouriteCard;
 
 const Section = styled.section`
   width: 100%;
-  /* background-color: yellow; */
-  /* padding: 15px 40px; */
 
   .card_main {
     align-self: auto;
@@ -74,8 +66,16 @@ const Section = styled.section`
     }
 
     .card_title {
-      padding-left: 0.5rem;
-      font-size: .8rem;
+      padding: 0 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: .7rem;
+      span {
+        padding: .1rem .5rem;
+        background-color: ${Colors.secondaryColor};
+        border-radius: 1rem;
+        color: #333;
+      }
     }
     .card_subtitle {
       ul {
@@ -84,30 +84,24 @@ const Section = styled.section`
         list-style: none;
         color: ${Colors.terteryColor};
         padding-left: 0.5rem;
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
     }
     .card_actions {
       padding: 0 0.5rem;
       display: flex;
       justify-content: space-between;
-      color: ${Colors.terteryColor};
-      font-size: 0.7rem;
+      align-items: center;
+      color: ${Colors.primaryColor};
+      font-size: 0.8rem;
       > div {
-        display: flex;
-        gap: 10px;
-        .rating_icon {
-          color: ${Colors.secondaryColor};
-          font-size: 1.2rem;
-        }
         &:last-child {
           span {
-            background-color: #feecd1;
-            color: red;
+            background-color: ${Colors.primaryColor};
             /* opacity: .3; */
-            padding: 0.1rem 0.5rem;
-            border-radius: 0.8rem;
-            color: ${Colors.secondaryColor};
+            padding: 0.3rem 0.3rem;
+            border-radius: 0.1rem;
+            color: #fff;
           }
         }
         span {

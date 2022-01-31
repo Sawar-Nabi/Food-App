@@ -1,6 +1,5 @@
 import { css } from "styled-components";
 
-
 export const Card_css = css`
   background-color: #fff;
   padding: 0.4rem;

@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import FavouriteCard from "./FavouriteCard";
+import OrdersliderCard from "./OrdersliderCard";
 import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const Favourite = () => {
+  const [ slider, setslider ] = useState([ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]);
   return (
     <Section>
       <div className="favourite_header">
-        <h3>Favourite</h3>
+        <h3>Order Again</h3>
         <Link to="" className="see_all">
           See All
         </Link>
       </div>
       <div className="home_card_slider">
-        <FavouriteCard />
-        <FavouriteCard />
-        <FavouriteCard />
-        <FavouriteCard />
+        <div>{slider.map((slide, i) => <OrdersliderCard key={i} />)}</div>
       </div>
     </Section>
   );
@@ -28,6 +26,7 @@ export default Favourite;
 
 const Section = styled.section`
   width: 100%;
+  padding-bottom: 3rem;
   .favourite_header {
     width: 100%;
     padding: 10px 30px;
@@ -40,14 +39,21 @@ const Section = styled.section`
   }
 
   .home_card_slider {
-    &::-webkit-scrollbar {
-      width: 15px;
-      height: 0px;
-      background-color: ${Colors.secondaryColor};
+    /* background-color: red; */
+    div {
+      &::-webkit-scrollbar {
+        width: 15px;
+        height: 0px;
+        background-color: ${Colors.secondaryColor};
+      }
     }
-    padding: 15px 40px;
-    display: flex;
-    overflow: auto;
-    gap: 20px;
+
+    padding: 0 1.5rem;
+
+    > div {
+      display: flex;
+      overflow: auto;
+      gap: 20px;
+    }
   }
 `;

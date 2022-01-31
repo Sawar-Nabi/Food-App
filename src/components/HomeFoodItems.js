@@ -64,8 +64,7 @@ const Card = styled.div`
     width: 20rem;
     /* min-width: 15rem; */
     height: auto;
-    ${Card_css}
-    .card_items_img {
+    company_title ${Card_css} .card_items_img {
       /* background-color: green; */
       width: 100%;
       img {
@@ -83,9 +82,10 @@ const Card = styled.div`
       justify-content: space-between;
       align-items: center;
       padding: 0 0.5rem;
+      /* font-size: 10rem; */
       span {
+        font-size: 1rem;
         &:first-child {
-          font-size: 1.5rem;
         }
       }
     }
@@ -96,17 +96,14 @@ const Card = styled.div`
     display: flex;
     gap: 20px;
     color: ${Colors.terteryColor};
-    span {
-      svg {
-        font-size: 0.9rem;
-      }
-    }
+    font-size: 0.9rem;
   }
 
   .company_actions {
     padding: 0 0.5rem;
     display: flex;
     justify-content: space-between;
+    font-size: 0.9rem;
     span {
       display: flex;
       align-items: center;
