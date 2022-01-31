@@ -66,13 +66,15 @@ const OpenComponent = () => {
           </ul>
         </div>
         <div className="open_container_card">
+        <CardList />
           <CardList />
           <CardList />
-          <CardList />
+         
           
         </div>
       </div>
     </Section>
+    
   );
 };
 
