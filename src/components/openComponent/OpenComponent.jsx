@@ -85,7 +85,7 @@ const Section = styled.section`
   font-family: ${Fonts.primaryFont};
   .open_banner {
     width: 100%;
-    height: 30rem;
+    height: 40rem;
     background-image: url(${bannerImage});
     background-position: center;
     background-repeat: no-repeat;
@@ -155,7 +155,7 @@ const Section = styled.section`
           &:last-of-type {
             padding: 0.5rem 2rem;
             color: ${Colors.secondaryColor};
-            background-color: rgba(255, 0, 85, 0.134);
+            background-color: ${Colors.lightPrimaryColor};
             border-radius: 0.5rem;
           }
         }
@@ -182,7 +182,7 @@ const Section = styled.section`
     }
     .food_choice {
       padding: 1rem 2rem;
-      background-color: rgba(255, 0, 85, 0.134);
+      background-color:  ${Colors.lightPrimaryColor};
       border-radius: 3rem;
       overflow: auto;
       ul {

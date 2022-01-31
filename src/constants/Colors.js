@@ -4,4 +4,5 @@ export const Colors = {
   terteryColor: "#C2C2CB",
   terteryColor2: "#666666",
   helperColor: "#0E122B",
+  lightPrimaryColor: "#FEECD1",
 };
