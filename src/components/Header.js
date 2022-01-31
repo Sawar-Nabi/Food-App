@@ -109,6 +109,13 @@ const Section = styled.section`
   .food_item_container {
     background-color: red;
   }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    .nav_logo {
+      display: none;
+    }
+  }
 `;
 
 const Company = styled.div`
