@@ -30,7 +30,7 @@ const Home = () => {
         </div>
 
         <div className="nav_logo">
-          <Link to="/">
+          <Link to="/slider">
             <img src={Logo} alt="" />
           </Link>
         </div>
