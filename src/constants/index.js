@@ -1,6 +1,7 @@
 import { Fonts } from "./Fonts";
 import { Colors } from "./Colors";
 import {Flex, CardListStyle,Grid} from "./ReusableCode"
+import { device } from "./MediaQuerieDivices";
 
 export const Constant = {
   Fonts,
@@ -8,4 +9,5 @@ export const Constant = {
   Flex,
   CardListStyle,
   Grid,
+  device,
 };

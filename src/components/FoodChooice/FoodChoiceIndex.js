@@ -117,6 +117,8 @@ const Section = styled.section`
     }
   }
 
-  @media screen {
+  @media (max-width: 1024px) {
+    
   }
+
 `;
