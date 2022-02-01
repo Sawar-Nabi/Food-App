@@ -7,7 +7,7 @@ import { Constant } from "../../constants";
 import { Link } from "react-router-dom";
 import CardList from "./CardList";
 
-const { Fonts, Colors, Flex, device  } = Constant;
+const { Fonts, Colors, Flex, device } = Constant;
 
 const OpenComponent = () => {
   return (
@@ -55,7 +55,7 @@ const OpenComponent = () => {
             </li>
             <li>
               <Link to="/">burgers</Link>{" "}
-            </li>
+            </li>S
             <li>
               <Link to="/">meels</Link>{" "}
             </li>
@@ -68,15 +68,12 @@ const OpenComponent = () => {
           </ul>
         </div>
         <div className="open_container_card">
-        <CardList />
           <CardList />
           <CardList />
-         
-          
+          <CardList />
         </div>
       </div>
     </Section>
-    
   );
 };
 
@@ -88,12 +85,11 @@ const Section = styled.section`
   .open_banner {
     width: 100%;
     height: 30rem;
-    img{
+    img {
       height: inherit;
       width: inherit;
       object-fit: cover;
     }
-     
   }
   .open_container {
     position: relative;
@@ -186,7 +182,7 @@ const Section = styled.section`
     }
     .food_choice {
       padding: 1rem 2rem;
-      background-color:  ${Colors.lightPrimaryColor};
+      background-color: ${Colors.lightPrimaryColor};
       border-radius: 3rem;
       overflow: auto;
       ul {
@@ -213,156 +209,142 @@ const Section = styled.section`
 
   @media (max-width: 1024px) {
     .open_banner {
-    height: 22rem;
-
+      height: 22rem;
     }
   }
-  @media (max-width: 767px){
+  @media (max-width: 767px) {
     .open_banner {
-    height: 15rem;
+      height: 15rem;
     }
     .open_container {
-    top: -2rem;
-    border-radius: 2rem;
-    padding: 1.5rem 1rem;
+      top: -2rem;
+      border-radius: 2rem;
+      padding: 1.5rem 1rem;
 
-    .container_heading_div {
-      .head {
-        font-size: 1.5rem;
-      }
-      .content_navigate_indicator {
-        padding: .4rem 0;
-       
-      }
-      .reviews_div {
-        padding: 0.3rem 0;
-        span {
-          margin: 0 0.5rem;
-          font-size: 1rem;
-         
+      .container_heading_div {
+        .head {
+          font-size: 1.5rem;
         }
-        .starIcon {
-          color: ${Colors.secondaryColor};
-          font-size: 1.6rem;
+        .content_navigate_indicator {
+          padding: 0.4rem 0;
         }
-      }
-      .delivery_div {
-        
-        gap: 1rem;
-        padding: 1rem 0;
-        div {
+        .reviews_div {
           padding: 0.3rem 0;
-          font-size: 1rem;
-          &:last-of-type {
-            padding: 0.3rem .5rem;
+          span {
+            margin: 0 0.5rem;
+            font-size: 1rem;
+          }
+          .starIcon {
+            color: ${Colors.secondaryColor};
+            font-size: 1.6rem;
           }
         }
-        .free_delivery {
-          .delivery_dollar_icon {
-            font-size: 1.2rem;
+        .delivery_div {
+          gap: 1rem;
+          padding: 1rem 0;
+          div {
+            padding: 0.3rem 0;
+            font-size: 1rem;
+            &:last-of-type {
+              padding: 0.3rem 0.5rem;
+            }
           }
-          span {
-            margin-left: 0.2rem;
+          .free_delivery {
+            .delivery_dollar_icon {
+              font-size: 1.2rem;
+            }
+            span {
+              margin-left: 0.2rem;
+            }
           }
-        }
-        .thirty_min {
-          .thirty_min_icon {
-            font-size: 1.2rem;
-          }
-          span {
-            margin-left: 0.3rem;
+          .thirty_min {
+            .thirty_min_icon {
+              font-size: 1.2rem;
+            }
+            span {
+              margin-left: 0.3rem;
+            }
           }
         }
       }
-    }
-    .food_choice {
-      padding: .5rem 1rem;
-      border-radius: 2.5rem;
-      ul {
-        gap: 1rem;
-        li {
-          font-size: 1rem;
-          
+      .food_choice {
+        padding: 0.5rem 1rem;
+        border-radius: 2.5rem;
+        ul {
+          gap: 1rem;
+          li {
+            font-size: 1rem;
+          }
         }
       }
-    }
-    .open_container_card {
-      padding: 2rem 0;
-     
-      gap: .5rem;
+      .open_container_card {
+        padding: 2rem 0;
+
+        gap: 0.5rem;
+      }
     }
   }
-  } 
-  @media (max-width: 423px){
+  @media (max-width: 423px) {
     .open_banner {
       height: 12rem;
-    
-     
-  }
-  .open_container {
-    top: -.5rem;
-   border-radius: 1rem;
-   padding: 1rem .5rem;
-    .container_heading_div {
-      .head {
-        font-size: 1rem;
-      }
-      .content_navigate_indicator {
-        font-size: .8rem;
-        
-      }
-      .reviews_div {
-       padding: 0.2rem 0;
-       span {
-         margin: 0 0.5rem;
-         font-size: .7rem;
-      
-       }
-       .starIcon {
-         font-size: 1.2rem;
-       }
     }
-      .delivery_div {
-        gap: 1rem;
-       padding: 1rem 0;
-       div {
-         padding: 0.3rem 0;
-         font-size: .8rem;
-         &:last-of-type {
-           padding: 0.3rem .5rem;
-         }
-     }
-     .free_delivery {
-         .delivery_dollar_icon {
-           font-size: 1rem;
-         }
-       
-      }
-      .thirty_min {
-        .thirty_min_icon {
+    .open_container {
+      top: -0.5rem;
+      border-radius: 1rem;
+      padding: 1rem 0.5rem;
+      .container_heading_div {
+        .head {
           font-size: 1rem;
         }
-       
+        .content_navigate_indicator {
+          font-size: 0.8rem;
+        }
+        .reviews_div {
+          padding: 0.2rem 0;
+          span {
+            margin: 0 0.5rem;
+            font-size: 0.7rem;
+          }
+          .starIcon {
+            font-size: 1.2rem;
+          }
+        }
+        .delivery_div {
+          gap: 1rem;
+          padding: 1rem 0;
+          div {
+            padding: 0.3rem 0;
+            font-size: 0.8rem;
+            &:last-of-type {
+              padding: 0.3rem 0.5rem;
+            }
+          }
+          .free_delivery {
+            .delivery_dollar_icon {
+              font-size: 1rem;
+            }
+          }
+          .thirty_min {
+            .thirty_min_icon {
+              font-size: 1rem;
+            }
+          }
+        }
       }
+      .food_choice {
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        ul {
+          li {
+            font-size: 0.9rem;
+          }
+        }
       }
-    }
-    .food_choice {
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    ul {
-      li {
-        font-size: .9rem;
-        
-      }
-    }
-  }
-  .open_container_card {
-    padding: 1rem 0;
-   
-    gap: .2rem;
-  }
-  }
+      .open_container_card {
+        padding: 1rem 0;
 
-  } 
+        gap: 0.2rem;
+      }
+    }
+  }
 `;
-
