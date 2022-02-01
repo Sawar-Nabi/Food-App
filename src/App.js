@@ -4,6 +4,7 @@ import { Constant } from "./constants";
 import styled from "styled-components";
 import OpenComponent from "./components/openComponent/OpenComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FoodChoiceIndex from "./components/FoodChooice/FoodChoiceIndex";
 const { Fonts, Colors } = Constant;
 
 const App = () => {
@@ -11,7 +12,8 @@ const App = () => {
     <BrowserRouter>
     <Section>
     <Routes>
-    <Route path="/" element={<OpenComponent/>}/>
+    <Route path="/open" element={<OpenComponent/>}/>
+    <Route path="/" element={<FoodChoiceIndex/>}/>
     
     </Routes>
      
