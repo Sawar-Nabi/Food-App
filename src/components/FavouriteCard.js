@@ -47,9 +47,7 @@ const FavouriteCard = () => {
 export default FavouriteCard;
 
 const Section = styled.section`
-  width: 100%;
-  /* background-color: yellow; */
-  /* padding: 15px 40px; */
+  /* width: 100%; */
 
   .card_main {
     align-self: auto;
@@ -114,6 +112,23 @@ const Section = styled.section`
           display: flex;
           align-items: center;
           gap: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .card_main {
+      width: 270px;
+      height: 250px;
+      .card_img {
+        img {
+          height: 170px;
+        }
+      }
+      .card_subtitle {
+        ul {
+          font-size: 0.7rem;
         }
       }
     }

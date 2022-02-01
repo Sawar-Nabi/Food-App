@@ -56,16 +56,11 @@ const HomeFoodItems = () => {
 export default HomeFoodItems;
 
 const Card = styled.div`
-  // flex: 1;
-  /* background-color: red; */
   font-family: ${Fonts.primaryFont};
-  /* padding: 0 3rem; */
   .food_item_container {
     width: 20rem;
-    /* min-width: 15rem; */
-    height: auto;
-    company_title ${Card_css} .card_items_img {
-      /* background-color: green; */
+    ${Card_css};
+    .card_items_img {
       width: 100%;
       img {
         width: 100%;
@@ -82,7 +77,6 @@ const Card = styled.div`
       justify-content: space-between;
       align-items: center;
       padding: 0 0.5rem;
-      /* font-size: 10rem; */
       span {
         font-size: 1rem;
         &:first-child {
@@ -119,6 +113,65 @@ const Card = styled.div`
         svg {
           color: ${Colors.primaryColor};
         }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .food_item_container {
+      margin-bottom: 15px;
+      /* background-color: aqua; */
+      width: 100%;
+      flex-direction: row;
+      height: 120px;
+      .card_items_img {
+        width: 150px;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .card_content {
+        gap: 0.5rem;
+        width: calc(100% - 150px);
+      }
+
+      .company_actions {
+        justify-content: initial;
+        gap: 0.5rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .food_item_container {
+      margin-bottom: 15px;
+      width: 100%;
+      flex-direction: row;
+      height: 100px;
+      .card_items_img {
+        width: 100px;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .card_content {
+        gap: 0.5rem;
+        width: calc(100% - 100px);
+      }
+
+      .company_subtitle {
+        font-size: 0.8rem;
+      }
+
+      .company_actions {
+        justify-content: space-between;
+        font-size: 0.52rem;
       }
     }
   }

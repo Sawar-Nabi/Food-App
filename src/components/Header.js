@@ -103,17 +103,24 @@ const Section = styled.section`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 20px;
-    color: ${Colors.terteryColor};
+    font-size: 25px;
+    a {
+      color: #ccc;
+    }
   }
   .food_item_container {
     background-color: red;
   }
 
   @media only screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+    grid-template-columns: 60% 40%;
     .nav_logo {
       display: none;
+    }
+
+    .nav_left_section {
+      font-size: .8rem;
     }
   }
 `;
@@ -126,4 +133,9 @@ const Company = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 1rem;
+    display: block;
+  }
 `;

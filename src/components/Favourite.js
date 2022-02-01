@@ -9,7 +9,7 @@ const Favourite = () => {
   return (
     <Section>
       <div className="favourite_header">
-        <h3>Favourite</h3>
+        <h4>Favourite</h4>
         <Link to="" className="see_all">
           See All
         </Link>
@@ -49,5 +49,16 @@ const Section = styled.section`
     display: flex;
     overflow: auto;
     gap: 20px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .favourite_header {
+      padding: 10px 0.7rem;
+    }
+
+    .home_card_slider {
+      padding: 15px 1rem;
+      gap: 0.3rem;
+    }
   }
 `;

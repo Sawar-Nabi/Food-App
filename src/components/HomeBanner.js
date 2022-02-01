@@ -119,4 +119,26 @@ const Section = styled.section`
       }
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    height: 200px;
+    padding-top: 2rem;
+    gap: 2rem;
+    .banner_search {
+      width: 90%;
+    }
+
+    .banner_nav {
+      gap: 0.9rem;
+      a {
+        img {
+          width: 1.5rem;
+        }
+        > div {
+          font-size: .8rem;
+          letter-spacing: 0.05rem;
+        }
+      }
+    }
+  }
 `;
