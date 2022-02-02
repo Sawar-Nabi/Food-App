@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import bannerImage from "../../media/openBanner.jpg";
 import { BsFillBookmarkFill, BsDot, BsFillStopwatchFill } from "react-icons/bs";
@@ -6,10 +6,15 @@ import { AiFillStar, AiFillDollarCircle } from "react-icons/ai";
 import { Constant } from "../../constants";
 import { Link } from "react-router-dom";
 import CardList from "./CardList";
+import SelectFood from "../selectFoodModal/SelectFood";
 
-const { Fonts, Colors, Flex, device } = Constant;
+const { Fonts, Colors, Flex,  } = Constant;
 
 const OpenComponent = () => {
+  const [count, setcount] = useState(false);
+  const getCardValue = (value) =>{
+    setcount(value)
+  }
   return (
     <Section>
       <div className="open_banner">
@@ -24,7 +29,7 @@ const OpenComponent = () => {
             </Link>
           </div>
           <div className="content_navigate_indicator">
-            <Link to="/">$$</Link>
+            <Link to="/">$${count}</Link>
             <BsDot />
             <Link to="/">Burger</Link> <BsDot />{" "}
             <Link to="/">american food</Link> <BsDot />
@@ -45,7 +50,7 @@ const OpenComponent = () => {
               <BsFillStopwatchFill className="thirty_min_icon" />{" "}
               <span>thirty min</span>
             </div>
-            <div className="take_away">take away</div>
+            <div className="take_away" onClick={() =>{setcount(count + 1)}}>take away</div>
           </div>
         </div>
         <div className="food_choice">
@@ -55,7 +60,7 @@ const OpenComponent = () => {
             </li>
             <li>
               <Link to="/">burgers</Link>{" "}
-            </li>S
+            </li>
             <li>
               <Link to="/">meels</Link>{" "}
             </li>
@@ -68,11 +73,12 @@ const OpenComponent = () => {
           </ul>
         </div>
         <div className="open_container_card">
-          <CardList />
+          <CardList value={getCardValue}/>
           <CardList />
           <CardList />
         </div>
       </div>
+      {count && <SelectFood/>}
     </Section>
   );
 };
@@ -95,7 +101,7 @@ const Section = styled.section`
     position: relative;
     top: -3rem;
     background-color: #fff;
-    border-radius: 3rem;
+    border-radius: 3rem 3rem 0 0 ;
     padding: 2rem;
 
     .container_heading_div {

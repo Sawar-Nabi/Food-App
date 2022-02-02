@@ -10,7 +10,7 @@ import {
   AiOutlineMinusCircle,
 } from "react-icons/ai";
 
-const { Fonts, Colors, Flex, CardListStyle } = Constant;
+const { Fonts, Colors, Flex,  } = Constant;
 
 const FoodChoiceIndex = () => {
   return (

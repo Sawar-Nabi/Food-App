@@ -2,15 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { Constant } from "../../constants";
 import listImage from "../../media/listContent.jpg";
-import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai"; 
 
 const { Colors, Flex, CardListStyle,  } = Constant;
 
-const CardList = () => {
+const CardList = ({value}) => {
+ 
+  const setCountValue = () =>{
+    
+    value(true)
+  } 
   return (
     <Section>
       <div className="card_list">
-        <div className="card_list_icon">
+        <div className="card_list_icon" onClick={setCountValue}>
           <img src={listImage} alt="" />
         </div>
         <div className="card_list_content">
