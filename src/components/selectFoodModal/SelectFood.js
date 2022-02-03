@@ -4,6 +4,7 @@ import { BsChevronCompactUp } from "react-icons/bs";
 import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
 import { Constant } from "../../constants";
 import cardIcon from "../../media/listContent.jpg";
+import FullMeal from "./FullMeal";
 
 const {  Colors, Flex, CardListStyle } = Constant;
 
@@ -55,7 +56,7 @@ const SelectFood = () => {
           </div>
         </div>
 
-
+          <FullMeal/>
         <div className="addToCart">
           <button>add to cart <span>$15.00</span></button>
         </div>
