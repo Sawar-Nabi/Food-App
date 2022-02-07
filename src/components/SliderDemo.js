@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../styles/style.css';
+import "../styles/style.css";
 import image1 from "../media/1.JPG";
 import image2 from "../media/2.JPG";
 import image3 from "../media/3.JPG";
@@ -11,9 +11,9 @@ import image5 from "../media/5.JPG";
 
 const SliderDemo = () => {
   return (
-    <div style={{margin: '40px',}}>
+    <div style={{ margin: "40px" }}>
       <h1>Hello</h1>
-      <Slider >
+      <Slider dots>
         <div>
           <img src={image1} alt="" style={{ width: "100%", height: "400px" }} />
         </div>
