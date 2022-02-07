@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import {GiCheckMark} from "react-icons/gi"
 import {AiOutlinePlus} from "react-icons/ai"
 import ColaIcon from "../../media/cola.jpg"
+import FrenchFriesIcon from "../../media/french.jpg"
 import {Constant, } from "../../constants"
 
-const{Fonts,
+const{
   Colors,
   Flex,
   CardListStyle,
-  Grid,
-  device,} = Constant;
+  
+ } = Constant;
 
 const FullMeal = () => {
     const example = [0,1,2,3]
@@ -19,7 +20,7 @@ const FullMeal = () => {
   <div className="sidesCardsDiv">
   {example.map((ex, i) =>
     <div className="cardIcon">
-          <img src={ColaIcon} alt="" />
+          <img src={FrenchFriesIcon} alt="" />
           <div><GiCheckMark/></div>
       </div>
   )}
@@ -48,18 +49,20 @@ p{
 .sidesCardsDiv, .beverageDiv{
   ${Flex};
   justify-content: space-around;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   .cardIcon{
     ${CardListStyle};
-    padding: .5rem;
     position: relative;
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     img{
       width:inherit;
       height: inherit;
       object-fit: cover;
       border-radius: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
 
     }
     div{
@@ -72,5 +75,24 @@ p{
       color: #fff;
     }
   }
+}
+@media (max-width: 1024px) {
+  p{
+  font-size: 1.1rem;
+}
+.sidesCardsDiv, .beverageDiv{
+  justify-content: space-around;
+  padding: 1.3rem 0;
+  .cardIcon{
+    width: 8rem;
+    height: 8rem;
+    
+    div{
+      padding: 1rem .5rem .2rem 1rem;
+      border-radius: 100% 0 1rem 0;
+    }
+  }
+}
+
 }
 `

@@ -9,14 +9,15 @@ import CardList from "./CardList";
 import SelectFood from "../selectFoodModal/SelectFood";
 
 const { Fonts, Colors, Flex,  } = Constant;
-
 const OpenComponent = () => {
+  const exampleApi = [1,2,3,4,5,6] 
+
   const [count, setcount] = useState(false);
   const getCardValue = (value) =>{
     setcount(value)
   }
   return (
-    <Section>
+    <Section >
       <div className="open_banner">
         <img src={bannerImage} alt="" />
       </div>
@@ -29,7 +30,7 @@ const OpenComponent = () => {
             </Link>
           </div>
           <div className="content_navigate_indicator">
-            <Link to="/">$${count}</Link>
+            <Link to="/">$$</Link>
             <BsDot />
             <Link to="/">Burger</Link> <BsDot />{" "}
             <Link to="/">american food</Link> <BsDot />
@@ -56,29 +57,34 @@ const OpenComponent = () => {
         <div className="food_choice">
           <ul>
             <li>
-              <Link to="/">foryou</Link>{" "}
+              <Link to="/">foryou</Link>
             </li>
             <li>
-              <Link to="/">burgers</Link>{" "}
+              <Link to="/">burgers</Link>
             </li>
             <li>
-              <Link to="/">meels</Link>{" "}
+              <Link to="/">meels</Link>
             </li>
             <li>
-              <Link to="/">chicken</Link>{" "}
+              <Link to="/">chicken</Link>
             </li>
             <li>
-              <Link to="/">soup</Link>{" "}
+              <Link to="/">soup</Link>
             </li>
           </ul>
         </div>
         <div className="open_container_card">
-          <CardList value={getCardValue}/>
-          <CardList />
-          <CardList />
+        {
+        exampleApi.map((ex) =>
+        <CardList value={getCardValue}/>
+
+        )
+        }
+         
+          
         </div>
       </div>
-      {count && <SelectFood/>}
+      {count && <SelectFood value={getCardValue}/>}
     </Section>
   );
 };
@@ -88,6 +94,7 @@ const Section = styled.section`
   width: 100%;
   min-height: 100vh;
   font-family: ${Fonts.primaryFont};
+  overflow: hidden;
   .open_banner {
     width: 100%;
     height: 30rem;

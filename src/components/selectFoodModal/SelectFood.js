@@ -8,9 +8,10 @@ import FullMeal from "./FullMeal";
 
 const {  Colors, Flex, CardListStyle } = Constant;
 
-const SelectFood = () => {
+const SelectFood = ({value}) => {
   const [counter, setcounter] = useState(0);
-  const [slider, setSlider] = useState(25)
+  const [slider, setSlider] = useState(25);
+  
   const decreaseQuantity = () =>{
     if(counter > 0){
       setcounter(counter - 1)
@@ -23,10 +24,14 @@ const SelectFood = () => {
     setSlider(e.target.value)
 
   }
+  const setCountValue = () =>{
+    
+    value(false)
+  }
   return (
     <Section>
-      <div className="Select_Food_Modal">
-        <div className="arrowicon">
+      <div className="Select_Food_Modal" >
+        <div className="arrowicon" onClick={setCountValue}>
           <BsChevronCompactUp />
         </div>
         <div className="card">
@@ -56,9 +61,9 @@ const SelectFood = () => {
           </div>
         </div>
 
-          <FullMeal/>
+         { slider >= 50 ?<FullMeal/> : null}
         <div className="addToCart">
-          <button>add to cart <span>$15.00</span></button>
+          <button>add to cart <span>${15 * counter}.00</span></button>
         </div>
       </div>
     </Section>
@@ -68,19 +73,23 @@ const SelectFood = () => {
 export default SelectFood;
 const Section = styled.section`
   position: fixed;
-  top: 0;
+  top: 0rem;
   left: 0;
   background-color: rgba(51, 51, 51, 0.473);
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  overflow-y: scroll;
+  padding-top: 15rem;
+
   .Select_Food_Modal {
     width: 80%;
     background-color: #fff;
     padding: 2rem 1rem;
     border-radius: 3rem 3rem 0 0;
+    min-height: fit-content;
     text-transform: capitalize;
 
     .arrowicon {
@@ -195,5 +204,81 @@ const Section = styled.section`
 
       }
     }
+  }
+  @media (max-width: 1024px) {
+    .Select_Food_Modal {
+    width: 90%;
+    padding: 1.5rem 1rem;
+
+    .arrowicon {
+      font-size: 2.5rem;
+    }
+    .card {
+      gap: 1rem;
+      .cardIcon {
+        width: 7rem;
+        height: 7rem;
+        img {
+          border-radius: 1rem;
+        }
+      }
+      .cardContent {
+        line-height: 1.7;
+       
+      }
+    }
+    .quantity_Div {
+      padding: .5rem;
+
+      p {
+        font-size: 1.4rem;
+      }
+      .quantityIcons {
+        gap: 1rem;
+        font-size: 1.5rem;
+        
+      }
+    }
+    .mealSize{
+      justify-content: space-between;
+      padding: 1rem;
+
+      p {
+        font-size: 1.1rem;
+        flex: 1;
+      }
+      .sizeRange{
+        flex-direction: column;
+        input{
+          width: 80%;
+          height: 2px;
+          margin-bottom: 1rem;
+
+          &::-webkit-slider-thumb{
+            border: .7rem solid ${Colors.secondaryColor};
+            width: .5rem;
+            height: .5rem;
+
+          }
+        }
+        .rangeValue{
+            justify-content: space-around;
+            width: 80%;
+
+        }
+      }
+    }
+    .addToCart{
+      padding: .5rem;
+      button{
+        padding: .7em 1.7em;
+        font-size: 1.2rem;
+        gap: 10rem;
+        
+
+      }
+    }
+  }
+
   }
 `;
