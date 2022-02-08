@@ -10,11 +10,11 @@ const { Colors, Flex, CardListStyle } = Constant;
 
 const FullMeal = () => {
   const example = [0, 1, 2, 3];
-  const [checkIcon, setCheckIcon] = useState();
+  const [checkIcon, setCheckIcon] = useState([]);
 
   const toggleIconCheck = (e) => {
-    setCheckIcon(e.target.checked);
-    console.log(e.target.checked);
+    setCheckIcon();
+    console.log(e.target.id);
   };
 
   return (
@@ -22,7 +22,7 @@ const FullMeal = () => {
       <p>sides</p>
       <div className="sidesCardsDiv">
         {example.map((ex, i) => (
-          <div className="cardIcon" key={i}>
+          <div className="cardIcon"  key={i} >
             <input
               type="checkbox"
               name={i}
@@ -31,13 +31,13 @@ const FullMeal = () => {
               onChange={toggleIconCheck}
             />
             <label htmlFor={i}>
-              <img src={FrenchFriesIcon} alt="" />
+              {/* <img src={FrenchFriesIcon} alt="" /> */}
             </label>
-            {checkIcon && (
+            {checkIcon == i ? (
               <div>
                 <GiCheckMark />
-              </div>
-            )}
+              </div> 
+            ): null}
           </div>
         ))}
       </div>
