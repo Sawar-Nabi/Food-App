@@ -22,15 +22,15 @@ const HomeBanner = () => {
         <IoOptionsSharp className="search_option" />
       </div>
       <div className="banner_nav">
-        <Link to="">
+        <Link to="/commonnav">
           <img src={breakfast} alt="" />
           <div>Breakfast</div>
         </Link>
-        <Link to="">
+        <Link to="/mycart">
           <img src={burger} alt="" />
           <div>Burger</div>
         </Link>
-        <Link to="">
+        <Link to="/counter">
           <img src={pizza} alt="" />
           <div>Pizza</div>
         </Link>

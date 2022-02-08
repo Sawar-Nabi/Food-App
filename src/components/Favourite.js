@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FavouriteCard from "./FavouriteCard";
-import { Constant } from "../constants";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const Favourite = () => {
