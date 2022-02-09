@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 
-const IncreDecrement = ({ itemFunc }) => {
+const IncreDecrement = ({valueFunc}) => {
   const [ counter, setCounter ] = useState(0);
 
   const increment = () => {
-    itemFunc(counter);
     setCounter(counter + 1);
   };
 
   const decrement = () => {
     if (counter == 0) {
       setCounter(0);
-      itemFunc(counter);
     } else {
-      itemFunc(counter);
       setCounter(counter - 1);
     }
   };
   return (
-    <div>
-      <h1>{counter}</h1>
-      <button onClick={increment}>Incre</button>
-      <button onClick={decrement}>Decre</button>
+    <div style={{display: 'flex', alignItems: 'center', gap: '1rem',background: '#afafaf', padding: '0 1rem', borderRadius: '.5rem'}}>
+      <button onClick={increment} style={{background: 'transparent', border: 'none'}}>+</button>
+      <span>{counter}</span>
+      <button onClick={decrement} style={{background: 'transparent', border: 'none'}}>-</button>
     </div>
   );
 };
