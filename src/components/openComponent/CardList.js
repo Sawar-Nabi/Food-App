@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Constant } from "../../constants";
 import listImage from "../../media/listContent.jpg";
@@ -12,6 +12,11 @@ const CardList = ({value}) => {
     
     value(true)
   } 
+  const [openCount, setOpenCount] = useState(0)
+  
+  const getCounterTocard= () =>{
+    
+  }
   return (
     <Section>
       <div className="card_list">
@@ -23,13 +28,13 @@ const CardList = ({value}) => {
           <p>snadwich features two savory flame-grilled beef patties</p>
           <div className="card_Price_Tag">
             <h3>$ 15.00</h3>
-            <button>
+            {/* <button>
               <AiOutlineMinusCircle className="add_Icon" />
             </button>
-            <span>2</span>
+            <span>{openCount}</span>
             <button>
               <AiFillPlusCircle className="add_Icon" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

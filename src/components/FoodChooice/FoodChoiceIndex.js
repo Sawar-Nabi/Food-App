@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Constant } from "../../constants";
 import choiceBannerImg from "../../media/choiceBanner.jpg";
@@ -9,69 +9,94 @@ import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
 } from "react-icons/ai";
+import FoodChoiceModel from "./FoodChoiceModel";
 
-const { Fonts, Colors, Flex,  } = Constant;
+const { Fonts, Colors, Flex } = Constant;
 
 const FoodChoiceIndex = () => {
+  const [foodModel, setFoodModel] = useState(false);
+
+  const showFoodModel = () => {
+    setFoodModel(!foodModel);
+  };
+  
   return (
     <Section>
-      <div className="choice_Banner">
-        <img src={choiceBannerImg} alt="" />
-      </div>
-      <div className="choice_Content">
-        <div className="head">
-          <div className="recipe_name">
-            <h1>chicken burger</h1> <h1>$15.00</h1>
-          </div>
-          <div className="recipe_rating">
-            <div className="star">
-              <AiFillStar className="starIcon" /> 4.9(150)
+      <div className="choice" style={foodModel?{overflow:'hidden'}:null}>
+        <div className="choice_Banner">
+          <img src={choiceBannerImg} alt="" />
+        </div>
+        <div className="choice_Content">
+          <div className="head">
+            <div className="recipe_name">
+              <h1>chicken burger</h1> <h1>$15.00</h1>
             </div>
+            <div className="recipe_rating">
+              <div className="star">
+                <AiFillStar className="starIcon" /> 4.9(150)
+              </div>
 
-            <div className="recipie_time">
-              <AiOutlineClockCircle className="recipie_time_icon" /> 30 min
+              <div className="recipie_time">
+                <AiOutlineClockCircle className="recipie_time_icon" /> 30 min
+              </div>
+              <div className="recipie_delivery">
+                <AiFillDollarCircle className="recipie_delivery_icon" /> free
+                delivery
+              </div>
             </div>
-            <div className="recipie_delivery">
-              <AiFillDollarCircle className="recipie_delivery_icon" /> free
-              delivery
+            <div className="ingredients_tabs_div">
+              <ul>
+                <li>details</li>
+                <li className="active">ingradients</li>
+                <li>review</li>
+              </ul>
             </div>
-          </div>
-          <div className="ingredients_tabs_div">
-            <ul>
-              <li>details</li>
-              <li className="active">ingradients</li>
-              <li>review</li>
-            </ul>
-          </div>
-          <div className="top_Choice">
-            <div className="topChoiceHead">
-              <span>choice of top burger</span>
-              <span>required</span>
+            <div className="top_Choice">
+              <div className="topChoiceHead">
+                <span>choice of top burger</span>
+                <span>required</span>
+              </div>
+              <div className="choiceOptions">
+                <input type="radio" name="choice" id="choice1" />
+                <label htmlFor="choice1">extra savory sauce</label>
+              </div>
+              <div className="choiceOptions">
+                <input type="radio" name="choice" id="choice2" />
+                <label htmlFor="choice2">extra cheese</label>
+              </div>
+              <div className="choiceOptions">
+                <input type="radio" name="choice" id="choice3" />
+                <label htmlFor="choice3">extra tomatos</label>
+              </div>
             </div>
-            <div className="choiceOptions">
-              <input type="radio" name="choice" id="choice1" />
-              <label htmlFor="choice1">extra savory sauce</label>
+            <div className="Special_instructions" onClick={showFoodModel}>
+              <AiOutlinePlusCircle />
+              <span>add special instructions</span>
             </div>
-            <div className="choiceOptions">
-              <input type="radio" name="choice" id="choice2" />
-              <label htmlFor="choice2">extra cheese</label>
+            {foodModel && <FoodChoiceModel close={showFoodModel} />}
+            <div
+              className="add_To_Cart"
+              style={
+                foodModel
+                  ? {
+                      position: "fixed",
+                      zIndex: "999",
+                      background: "#fff",
+                      bottom: "0px",
+                      left: "0px",
+                      width: "100%",
+                      height: '10vh',
+                    }
+                  : null
+              }
+            >
+              <AiOutlineMinusCircle className="plus_icon" />
+              <span>2</span>
+              <AiOutlinePlusCircle className="minus_icon" />
+              <button>
+                add to cart <span>$25.00</span>
+              </button>
             </div>
-            <div className="choiceOptions">
-              <input type="radio" name="choice" id="choice3" />
-              <label htmlFor="choice3">extra tomatos</label>
-            </div>
-          </div>
-          <div className="Special_instructions">
-            <AiOutlinePlusCircle />
-            <span>add special instructions</span>
-          </div>
-          <div className="add_To_Cart">
-            <AiOutlineMinusCircle className="plus_icon" />
-            <span>2</span>
-            <AiOutlinePlusCircle className="minus_icon" />
-            <button>
-              add to cart <span>$25.00</span>
-            </button>
           </div>
         </div>
       </div>
@@ -151,6 +176,7 @@ const Section = styled.section`
         }
       }
       .top_Choice {
+        padding: 1rem 0;
         .topChoiceHead {
           ${Flex};
           justify-content: space-between;
@@ -181,6 +207,9 @@ const Section = styled.section`
         font-size: 1.2rem;
         gap: 1rem;
         cursor: pointer;
+        background: #f2f2f2;
+        padding: 0.7rem;
+        border-radius: .5rem;
       }
       .add_To_Cart {
         ${Flex};
@@ -323,7 +352,7 @@ const Section = styled.section`
           }
         }
         .recipe_rating {
-          font-size: .85rem;
+          font-size: 0.85rem;
           gap: 1.5rem;
           .star,
           .recipie_time,
@@ -353,7 +382,7 @@ const Section = styled.section`
           }
         }
         .top_Choice {
-          padding: .5rem 0;
+          padding: 0.5rem 0;
           .topChoiceHead {
             padding: 0.7rem 0;
             font-size: 1rem;
@@ -364,7 +393,7 @@ const Section = styled.section`
           }
           .choiceOptions {
             padding: 0.5rem 0;
-            font-size: .85rem;
+            font-size: 0.85rem;
             input {
               width: 1.1rem;
               height: 1.1rem;
@@ -391,7 +420,6 @@ const Section = styled.section`
             padding: 0.5em 1.5em;
             font-size: 1rem;
             border-radius: 1rem;
-           
           }
         }
       }
@@ -410,7 +438,7 @@ const Section = styled.section`
           }
         }
         .recipe_rating {
-          font-size: .65rem;
+          font-size: 0.65rem;
           gap: 1rem;
           .star,
           .recipie_time,
@@ -433,7 +461,7 @@ const Section = styled.section`
             padding: 1rem 0;
             li {
               padding: 0rem 1rem;
-              font-size: .75rem;
+              font-size: 0.75rem;
             }
             .active {
               color: ${Colors.terteryColor2};
@@ -441,18 +469,18 @@ const Section = styled.section`
           }
         }
         .top_Choice {
-          padding: .5rem 0;
+          padding: 0.5rem 0;
           .topChoiceHead {
             padding: 0.7rem 0;
-            font-size: .85rem;
+            font-size: 0.85rem;
             span:last-child {
-              padding: 0.1rem .5rem;
+              padding: 0.1rem 0.5rem;
               border-radius: 0.5rem;
             }
           }
           .choiceOptions {
             padding: 0.5rem 0;
-            font-size: .85rem;
+            font-size: 0.85rem;
             input {
               width: 1.1rem;
               height: 1.1rem;
@@ -461,7 +489,7 @@ const Section = styled.section`
         }
         .Special_instructions {
           font-size: 1rem;
-          gap: .5rem;
+          gap: 0.5rem;
         }
         .add_To_Cart {
           padding: 1rem 0rem;
@@ -475,11 +503,10 @@ const Section = styled.section`
             cursor: pointer;
           }
           button {
-            gap: .5rem;
+            gap: 0.5rem;
             padding: 0.5em 1.5em;
-            font-size: .75rem;
+            font-size: 0.75rem;
             border-radius: 1rem;
-           
           }
         }
       }

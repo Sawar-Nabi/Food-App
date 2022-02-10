@@ -16,6 +16,8 @@ const OpenComponent = () => {
   const getCardValue = (value) =>{
     setcount(value)
   }
+
+
   return (
     <Section >
       <div className="open_banner">
@@ -32,7 +34,7 @@ const OpenComponent = () => {
           <div className="content_navigate_indicator">
             <Link to="/">$$</Link>
             <BsDot />
-            <Link to="/">Burger</Link> <BsDot />{" "}
+            <Link to="/">Burger</Link> <BsDot />
             <Link to="/">american food</Link> <BsDot />
             <Link to="/">deshi food</Link>
           </div>
@@ -51,7 +53,7 @@ const OpenComponent = () => {
               <BsFillStopwatchFill className="thirty_min_icon" />{" "}
               <span>thirty min</span>
             </div>
-            <div className="take_away" onClick={() =>{setcount(count + 1)}}>take away</div>
+            <div className="take_away" >take away</div>
           </div>
         </div>
         <div className="food_choice">
@@ -94,7 +96,6 @@ const Section = styled.section`
   width: 100%;
   min-height: 100vh;
   font-family: ${Fonts.primaryFont};
-  overflow: hidden;
   .open_banner {
     width: 100%;
     height: 30rem;

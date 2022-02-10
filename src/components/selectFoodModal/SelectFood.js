@@ -9,14 +9,14 @@ import FullMeal from "./FullMeal";
 const {  Colors, Flex, CardListStyle } = Constant;
 
 const SelectFood = ({value}) => {
-  const [counter, setcounter] = useState(0);
+  const [counter, setcounter] = useState(1);
   const [slider, setSlider] = useState(25);
   
   const decreaseQuantity = () =>{
-    if(counter > 0){
+    if(counter > 1){
       setcounter(counter - 1)
     }else{
-      setcounter(0)
+      setcounter(1)
     }
   }
 
@@ -28,6 +28,7 @@ const SelectFood = ({value}) => {
     
     value(false)
   }
+  
   return (
     <Section>
       <div className="Select_Food_Modal" >

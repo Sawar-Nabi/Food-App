@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GiCheckMark } from "react-icons/gi";
 import { AiOutlinePlus } from "react-icons/ai";
 import ColaIcon from "../../media/cola.jpg";
-import FrenchFriesIcon from "../../media/french.jpg";
+// import FrenchFriesIcon from "../../media/french.jpg";
 import { Constant } from "../../constants";
 
 const { Colors, Flex, CardListStyle } = Constant;
@@ -13,9 +13,12 @@ const FullMeal = () => {
   const [checkIcon, setCheckIcon] = useState([]);
 
   const toggleIconCheck = (e) => {
-    setCheckIcon();
-    console.log(e.target.id);
+    setCheckIcon((pre) =>
+    [...pre, e.target.id]
+    );
+    
   };
+  console.log(checkIcon);
 
   return (
     <Section>
@@ -33,7 +36,7 @@ const FullMeal = () => {
             <label htmlFor={i}>
               {/* <img src={FrenchFriesIcon} alt="" /> */}
             </label>
-            {checkIcon == i ? (
+            { checkIcon.indexOf('1') === i ? (
               <div>
                 <GiCheckMark />
               </div> 
