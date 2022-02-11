@@ -11,7 +11,7 @@ import {
 } from "react-icons/ai";
 import FoodChoiceModel from "./FoodChoiceModel";
 
-const { Fonts, Colors, Flex } = Constant;
+const { Fonts, Colors, Flex , ButtonP} = Constant;
 
 const FoodChoiceIndex = () => {
   const [foodModel, setFoodModel] = useState(false);
@@ -229,17 +229,8 @@ const Section = styled.section`
         button {
           ${Flex};
           gap: 3rem;
-          padding: 0.5em 1.5em;
           font-size: 1.2rem;
-          text-transform: capitalize;
-          border-radius: 1rem;
-          border: none;
-          background-color: ${Colors.primaryColor};
-          color: #fff;
-          cursor: pointer;
-          &:active {
-            background-color: rgba(10, 135, 145, 0.8);
-          }
+          ${ButtonP}
         }
       }
     }
@@ -505,7 +496,7 @@ const Section = styled.section`
           button {
             gap: 0.5rem;
             padding: 0.5em 1.5em;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             border-radius: 1rem;
           }
         }
