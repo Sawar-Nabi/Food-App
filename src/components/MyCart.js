@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CommonNav from "./CommonNav";
 import styled from "styled-components";
+import { IoNotificationsOutline } from "react-icons/io5";
 import IncreDecrement from "./IncreDecrement";
 import { Constant } from "../constants";
 import CheckoutCart from "./CheckoutCart";
@@ -16,7 +17,7 @@ const MyCart = () => {
   const example = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <Section>
-      <CommonNav title="My Cart" color="#000" />
+      <CommonNav title="My Cart" color="#000" icon={<IoNotificationsOutline />}/>
       {/* {example.map((exam, i) => (
         <div key={i}>
           <div>15</div>
@@ -34,5 +35,5 @@ export default MyCart;
 const Section = styled.section`
   width: 100%;
   height: auto;
-  /* background-color: #334; */
+  background-color: #fff;
 `;

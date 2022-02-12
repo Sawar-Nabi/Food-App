@@ -7,7 +7,7 @@ import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const CommonNav = (props) => {
-  const { title, color } = props;
+  const { title, color, icon } = props;
   return (
     <Nav>
       <Link to="" className="nav_back">
@@ -17,9 +17,8 @@ const CommonNav = (props) => {
         {title}
       </Link>
       <Link to="" className="">
-        <IoNotificationsOutline />
+        {icon}
       </Link>
-      {console.log(title, "helo")}
     </Nav>
   );
 };
@@ -36,5 +35,9 @@ const Nav = styled.nav`
   font-family: ${Fonts.primaryFont};
   a {
     color: #000;
+  }
+
+  @media only screen and (max-width: 768px) {
+  padding: 0.5rem 1rem;
   }
 `;

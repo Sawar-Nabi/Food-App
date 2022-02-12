@@ -6,6 +6,8 @@ import SliderDemo from "./components/SliderDemo";
 import MyCart from "./components/MyCart";
 import CommonNav from "./components/CommonNav";
 import IncreDecrement from "./components/IncreDecrement";
+import MyPaymentCard from "./components/MyPaymentCard";
+import BottomMenu from "./components/BottomMenu";
 
 const App = () => {
   return (
@@ -17,7 +19,9 @@ const App = () => {
         <Route path="/mycart" element={<MyCart />} />
         <Route path="/commonnav" element={<CommonNav />} />
         <Route path="/counter" element={<IncreDecrement />} />
+        <Route path="/paymentmethod" element={<MyPaymentCard />} />
       </Routes>
+      <BottomMenu/>
     </BrowserRouter>
   );
 };
