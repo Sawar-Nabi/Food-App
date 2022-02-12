@@ -5,6 +5,8 @@ import styled from "styled-components";
 import OpenComponent from "./components/openComponent/OpenComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FoodChoiceIndex from "./components/FoodChooice/FoodChoiceIndex";
+import PaymentMethod from "./components/PaymentMethod/PaymentMethod";
+import Welcome from "./components/welcomepage/welcome";
 // const { Fonts, } = Constant;
 
 const App = () => {
@@ -14,6 +16,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<OpenComponent />} />
           <Route path="/open" element={<FoodChoiceIndex />} />
+          <Route path="/payment" element={<PaymentMethod/>} />
+          <Route path="/welcome" element={<Welcome/>} />
         </Routes>
       </Section>
     </BrowserRouter>
