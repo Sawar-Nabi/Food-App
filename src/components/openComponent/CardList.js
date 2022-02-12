@@ -1,16 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Constant } from "../../constants";
 import listImage from "../../media/listContent.jpg";
-import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { AiFillPlusCircle, AiOutlineMinusCircle } from "react-icons/ai"; 
 
 const { Colors, Flex, CardListStyle,  } = Constant;
 
-const CardList = () => {
+const CardList = ({value}) => {
+ 
+  const setCountValue = () =>{
+    
+    value(true)
+  } 
+  const [openCount, setOpenCount] = useState(0)
+  
+  const getCounterTocard= () =>{
+    
+  }
   return (
     <Section>
       <div className="card_list">
-        <div className="card_list_icon">
+        <div className="card_list_icon" onClick={setCountValue}>
           <img src={listImage} alt="" />
         </div>
         <div className="card_list_content">
@@ -18,13 +28,13 @@ const CardList = () => {
           <p>snadwich features two savory flame-grilled beef patties</p>
           <div className="card_Price_Tag">
             <h3>$ 15.00</h3>
-            <button>
+            {/* <button>
               <AiOutlineMinusCircle className="add_Icon" />
             </button>
-            <span>2</span>
+            <span>{openCount}</span>
             <button>
               <AiFillPlusCircle className="add_Icon" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

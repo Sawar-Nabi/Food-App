@@ -1,32 +1,30 @@
 import React from "react";
 import "./styles/style.css";
-import { Constant } from "./constants";
+// import { Constant } from "./constants";
 import styled from "styled-components";
 import OpenComponent from "./components/openComponent/OpenComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FoodChoiceIndex from "./components/FoodChooice/FoodChoiceIndex";
-const { Fonts, Colors } = Constant;
+import PaymentMethod from "./components/PaymentMethod/PaymentMethod";
+import Welcome from "./components/welcomepage/welcome";
+// const { Fonts, } = Constant;
 
 const App = () => {
   return (
     <BrowserRouter>
-    <Section>
-    <Routes>
-    <Route path="/open" element={<OpenComponent/>}/>
-    <Route path="/" element={<FoodChoiceIndex/>}/>
-    
-    </Routes>
-     
-    </Section>
+      <Section>
+        <Routes>
+          <Route path="/" element={<OpenComponent />} />
+          <Route path="/open" element={<FoodChoiceIndex />} />
+          <Route path="/payment" element={<PaymentMethod/>} />
+          <Route path="/welcome" element={<Welcome/>} />
+        </Routes>
+      </Section>
     </BrowserRouter>
   );
 };
 
 export default App;
 
-const Section = styled.section`
-  h1 {
-    /* font-family: ${Fonts.primaryFont};
-    color: ${Colors.primaryColor}; */
-  }
+const Section = styled.div`
 `;
