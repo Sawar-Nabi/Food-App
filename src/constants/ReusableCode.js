@@ -8,7 +8,7 @@ export const Flex = css`
 `;
 export const CardListStyle = css`
   padding: 1rem;
-  box-shadow: 0.1rem 0.1rem 1rem #ccc;
+  box-shadow: 0.1rem 0.1rem 1rem grey;
   margin-bottom: 1rem;
   border-radius: 1rem;
 `;

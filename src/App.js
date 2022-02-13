@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FoodChoiceIndex from "./components/FoodChooice/FoodChoiceIndex";
 import PaymentMethod from "./components/PaymentMethod/PaymentMethod";
 import Welcome from "./components/welcomepage/welcome";
+import Filter from "./components/filter/Filter";
 // const { Fonts, } = Constant;
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/open" element={<FoodChoiceIndex />} />
           <Route path="/payment" element={<PaymentMethod/>} />
           <Route path="/welcome" element={<Welcome/>} />
+          <Route path="/filter" element={<Filter/>} />
         </Routes>
       </Section>
     </BrowserRouter>
