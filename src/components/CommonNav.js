@@ -1,22 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowBack } from "react-icons/io";
-import { IoNotificationsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const CommonNav = (props) => {
-  const { title, color, icon } = props;
+  const { title, color, icon, fucn, color_right_icon } = props;
   return (
     <Nav>
       <Link to="" className="nav_back">
         <IoIosArrowBack />
       </Link>
-      <Link to="" className="" style={{ color: color }}>
-        {title}
+      <Link to="" className="" style={{ color: color, fontWeight: "500" }}>
+        {title} {fucn()}
       </Link>
-      <Link to="" className="">
+      <Link to="" className="" style={{ color : color_right_icon }}>
         {icon}
       </Link>
     </Nav>
@@ -38,6 +37,6 @@ const Nav = styled.nav`
   }
 
   @media only screen and (max-width: 768px) {
-  padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 `;

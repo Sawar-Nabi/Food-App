@@ -19,7 +19,7 @@ const BottomMenu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/nearrestaurant">
             <AiOutlineCompass />
           </Link>
         </li>
@@ -66,5 +66,19 @@ const Menu = styled.div`
         }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+  ul {
+    justify-content: space-around;
+    gap: 0;
+    li {
+      a {
+        svg {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
   }
 `;

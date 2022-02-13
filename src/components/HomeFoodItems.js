@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Card_css } from "./CommonCardCss";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { GiForkKnifeSpoon } from "react-icons/gi";
-import { GoLocation } from "react-icons/go";
+// import { GoLocation } from "react-icons/go";
 import { BiTimeFive } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -11,30 +11,28 @@ import { AiFillStar } from "react-icons/ai";
 import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
-const HomeFoodItems = () => {
+const HomeFoodItems = ({ img, title, subtitle, icon1, commonIcon }) => {
   return (
     <Card>
       <div className="food_item_container">
         <div className="card_items_img">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McDonald%27s_logo.svg/220px-McDonald%27s_logo.svg.png"
-            alt=""
-          />
+          <img src={img} alt="" />
         </div>
         <div className="card_content">
           <div className="company_title">
-            <span>Mc Donald'S</span>
+            <span>{title}</span>
             <span>
-              <BsFillBookmarkFill />
+              <BsFillBookmarkFill color={Colors.secondaryColor} />
             </span>
           </div>
           <div className="company_subtitle">
             <span>
-              <GiForkKnifeSpoon className="company_icons" /> Burger
+              <GiForkKnifeSpoon className="company_icons" /> {subtitle.item1}
             </span>
-            <span>
-              <GoLocation className="company_icons" /> 2.1km
+            <span style={{display: 'flex', alignItems: 'center'}}>
+              {icon1} {commonIcon} {subtitle.item2}
             </span>
+            <span style={{display: 'flex', alignItems: 'center'}}>{commonIcon} {subtitle.item3}</span>
           </div>
           <div className="company_actions">
             <span>
@@ -64,6 +62,7 @@ const Card = styled.div`
       width: 100%;
       img {
         width: 100%;
+        border-radius: 0.4rem;
       }
     }
   }
@@ -119,9 +118,9 @@ const Card = styled.div`
 
   @media only screen and (max-width: 768px) {
     .food_item_container {
+      width: 100%;
       margin-bottom: 15px;
       /* background-color: aqua; */
-      width: 100%;
       flex-direction: row;
       height: 120px;
       .card_items_img {

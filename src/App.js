@@ -8,6 +8,7 @@ import CommonNav from "./components/CommonNav";
 import IncreDecrement from "./components/IncreDecrement";
 import MyPaymentCard from "./components/MyPaymentCard";
 import BottomMenu from "./components/BottomMenu";
+import NearRestaurant from "./components/NearRestaurant";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/commonnav" element={<CommonNav />} />
         <Route path="/counter" element={<IncreDecrement />} />
         <Route path="/paymentmethod" element={<MyPaymentCard />} />
+        <Route path="/nearrestaurant" element={<NearRestaurant />} />
       </Routes>
       <BottomMenu/>
     </BrowserRouter>

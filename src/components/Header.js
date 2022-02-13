@@ -15,7 +15,8 @@ import BottomMenu from "./BottomMenu";
 const { Fonts, Colors } = Constant;
 
 const Home = () => {
-  const [ slider, setslider ] = useState(10);
+  const itemArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [slider, setslider] = useState(10);
   return (
     <Fragment>
       <Section>
@@ -45,14 +46,16 @@ const Home = () => {
       <Favourite />
       <HomeNav />
       <Company>
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
-        <HomeFoodItems />
+        {itemArray.map((item, i) => (
+          <HomeFoodItems
+            key={i}
+            img="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McDonald%27s_logo.svg/220px-McDonald%27s_logo.svg.png"
+            title="Mc Donald'S"
+            subtitle={{ item1: "Burgur", item2: "2.1km" }}
+            icon1={<GoLocation/>}
+          />
+        ))}
+        ;
       </Company>
       <br />
       <br />
@@ -120,7 +123,7 @@ const Section = styled.section`
     }
 
     .nav_left_section {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
   }
 `;

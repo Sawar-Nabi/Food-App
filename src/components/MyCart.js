@@ -17,7 +17,7 @@ const MyCart = () => {
   const example = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <Section>
-      <CommonNav title="My Cart" color="#000" icon={<IoNotificationsOutline />}/>
+      <CommonNav title="My Cart" color="#000" icon={<IoNotificationsOutline />} fucn={()=> console.log('My Cart ')}/>
       {/* {example.map((exam, i) => (
         <div key={i}>
           <div>15</div>

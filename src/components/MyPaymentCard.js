@@ -9,15 +9,14 @@ import visacard from "../media/visacard.jpg";
 import rupaycard from "../media/rupaycard.png";
 import mastercard from "../media/mastercard.png";
 import { MdAddCircle } from "react-icons/md";
-
-import { Constant } from "../constants";
 import Button from "./Button";
+import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const MyPaymentCard = () => {
   return (
     <Section>
-      <CommonNav title="My Card" color="#000" icon={<MdAddCircle />} />
+      <CommonNav title="My Card" color_right_icon={Colors.primaryColor} icon={<MdAddCircle />} fucn={()=> console.log('My Card ')}/>
       <div>
         <Slider dots centerMode>
           <CardSlider>
