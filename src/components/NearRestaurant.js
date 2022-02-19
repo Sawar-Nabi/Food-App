@@ -1,29 +1,114 @@
 import React from "react";
 import styled from "styled-components";
-import { Constant } from "../constants";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { AiFillDollarCircle } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
 import { Search } from "./HomeBanner";
 import CommonNav from "./CommonNav";
 import HomeFoodItems from "./HomeFoodItems";
+import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
 const NearRestaurant = () => {
   const itemArray = [
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-      { item1: "Chines", item2: "Fast Food", item3: "Coffee" },
-    ];
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 5.0,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.9,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 5.0,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 5.0,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.1,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.8,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 5.0,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 5.0,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.9,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.8,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.1,
+      min: 30,
+      ratingTitle: "Free",
+    },
+    {
+      item1: "Chines",
+      item2: "Fast Food",
+      item3: "Coffee",
+      rating: 4.2,
+      min: 30,
+      ratingTitle: "Free",
+    },
+  ];
 
   return (
     <Section>
@@ -45,8 +130,9 @@ const NearRestaurant = () => {
             key={i}
             img="https://thumbs.dreamstime.com/b/kfc-fast-food-restaurant-logo-its-building-sagunto-spain-february-kfc-fried-chicken-fast-food-restaurant-logo-its-building-139640468.jpg"
             title="KFC"
-            subtitle={item}
-            commonIcon={<BsDot/>}
+            subtitle={[item]}
+            commonIcon={<BsDot />}
+            icon3={<AiFillDollarCircle />}
           />
         ))}
       </div>
@@ -77,6 +163,7 @@ const inputDataList = () => {
 export default NearRestaurant;
 
 const Section = styled.section`
+margin-bottom: 4.5rem;
   width: 100%;
   /* background-color: red; */
   font-family: ${Fonts.primaryFont};
@@ -91,7 +178,7 @@ const Section = styled.section`
   }
 
   .restaurant_list {
-      margin-top: 1rem;
+    margin-top: 1rem;
     width: 100%;
     /* background-color: beige; */
     padding: 0 3rem;

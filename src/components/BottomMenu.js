@@ -24,17 +24,17 @@ const BottomMenu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/filterrestaurant">
             <AiOutlineShoppingCart />
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/orders">
             <BsBookmark />
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/profile">
             <AiOutlineUser />
           </Link>
         </li>
@@ -51,6 +51,8 @@ const Menu = styled.div`
   width: 100%;
   height: 3rem;
   background-color: #fff;
+  box-shadow: 0.1rem 0 1rem #e6e6e6;
+  border-radius: 4rem;
   ul {
     height: inherit;
     display: flex;

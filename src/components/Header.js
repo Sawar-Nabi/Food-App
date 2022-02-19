@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { GoLocation } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import Logo from "../media/Logo.png";
 import HomeBanner from "./HomeBanner";
 import Favourite from "./Favourite";
@@ -15,8 +16,23 @@ import BottomMenu from "./BottomMenu";
 const { Fonts, Colors } = Constant;
 
 const Home = () => {
-  const itemArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const [slider, setslider] = useState(10);
+  // const itemArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const itemArray = [
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+    { item1: "Burgur", item2: "1.2", rating: 4.9, min: 10, ratingTitle: 'Contact' },
+  ];
+
   return (
     <Fragment>
       <Section>
@@ -51,8 +67,9 @@ const Home = () => {
             key={i}
             img="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McDonald%27s_logo.svg/220px-McDonald%27s_logo.svg.png"
             title="Mc Donald'S"
-            subtitle={{ item1: "Burgur", item2: "2.1km" }}
-            icon1={<GoLocation/>}
+            subtitle={[item]}
+            icon1={<GoLocation />}
+            icon3={<BsFillTelephoneFill />}
           />
         ))}
         ;

@@ -5,13 +5,13 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 // import { GoLocation } from "react-icons/go";
 import { BiTimeFive } from "react-icons/bi";
-import { BsFillTelephoneFill } from "react-icons/bs";
+// import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { Constant } from "../constants";
 const { Fonts, Colors } = Constant;
 
-const HomeFoodItems = ({ img, title, subtitle, icon1, commonIcon }) => {
+const HomeFoodItems = ({ img, title, subtitle, icon1, commonIcon, icon3,loc }) => {
   return (
     <Card>
       <div className="food_item_container">
@@ -25,26 +25,39 @@ const HomeFoodItems = ({ img, title, subtitle, icon1, commonIcon }) => {
               <BsFillBookmarkFill color={Colors.secondaryColor} />
             </span>
           </div>
-          <div className="company_subtitle">
-            <span>
-              <GiForkKnifeSpoon className="company_icons" /> {subtitle.item1}
-            </span>
-            <span style={{display: 'flex', alignItems: 'center'}}>
-              {icon1} {commonIcon} {subtitle.item2}
-            </span>
-            <span style={{display: 'flex', alignItems: 'center'}}>{commonIcon} {subtitle.item3}</span>
-          </div>
-          <div className="company_actions">
-            <span>
-              <AiFillStar /> 5.0
-            </span>
-            <span>
-              <BiTimeFive /> 10 min.
-            </span>
-            <span>
-              <BsFillTelephoneFill /> Contact
-            </span>
-          </div>
+
+          {subtitle.map((sub, i) => (
+            <React.Fragment key={i}>
+              <div className="subtitle_container" key={i}>
+                <div className="location_container">
+                  <span>{loc} {sub.location}</span>
+                </div>
+                <div className="company_subtitle">
+                  <span>
+                    <GiForkKnifeSpoon className="company_icons" /> {sub.item1}
+                  </span>
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    {icon1} {commonIcon} {sub.item2}
+                  </span>
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    {commonIcon} {sub.item3}
+                  </span>
+                </div>
+              </div>
+
+              <div className="company_actions">
+                <span>
+                  <AiFillStar /> {sub.rating}
+                </span>
+                <span>
+                  <BiTimeFive /> {sub.min} min.
+                </span>
+                <span>
+                  {icon3} {sub.ratingTitle}
+                </span>
+              </div>
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </Card>
@@ -84,12 +97,22 @@ const Card = styled.div`
     }
   }
 
-  .company_subtitle {
-    padding: 0 0.5rem;
+  .subtitle_container {
     display: flex;
-    gap: 20px;
-    color: ${Colors.terteryColor};
-    font-size: 0.9rem;
+    flex-direction: column;
+    .company_subtitle {
+      padding: 0 0.5rem;
+      display: flex;
+      gap: 20px;
+      color: ${Colors.terteryColor};
+      font-size: 0.9rem;
+    }
+
+    .location_container {
+      padding: 0 0.5rem;
+      color: ${Colors.terteryColor};
+      font-size: 0.9rem;
+    }
   }
 
   .company_actions {
@@ -164,8 +187,21 @@ const Card = styled.div`
         width: calc(100% - 100px);
       }
 
-      .company_subtitle {
-        font-size: 0.8rem;
+      
+
+      .subtitle_container {
+        display: flex;
+        flex-direction: column;
+        .company_subtitle {
+        font-size: 0.6rem;
+        gap: 0px;
+      }
+
+        .location_container {
+          padding: 0 0.5rem;
+          color: ${Colors.terteryColor};
+          font-size: 0.7rem;
+        }
       }
 
       .company_actions {

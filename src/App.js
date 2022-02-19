@@ -9,6 +9,9 @@ import IncreDecrement from "./components/IncreDecrement";
 import MyPaymentCard from "./components/MyPaymentCard";
 import BottomMenu from "./components/BottomMenu";
 import NearRestaurant from "./components/NearRestaurant";
+import FilterRestaurant from "./components/FilterRestaurant";
+import PreOrder from "./components/Orders/PreOrder";
+import Profile from "./components/profile/Profile";
 
 const App = () => {
   return (
@@ -18,10 +21,13 @@ const App = () => {
         <Route path="/slider" element={<SliderDemo />} />
         <Route path="/" element={<Header />} />
         <Route path="/mycart" element={<MyCart />} />
-        <Route path="/commonnav" element={<CommonNav />} />
+        <Route path="/commonnav" element={<CommonNav fucn={() => console.log()}/>} />
         <Route path="/counter" element={<IncreDecrement />} />
         <Route path="/paymentmethod" element={<MyPaymentCard />} />
         <Route path="/nearrestaurant" element={<NearRestaurant />} />
+        <Route path="/filterrestaurant" element={<FilterRestaurant />} />
+        <Route path="/orders" element={<PreOrder />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <BottomMenu/>
     </BrowserRouter>

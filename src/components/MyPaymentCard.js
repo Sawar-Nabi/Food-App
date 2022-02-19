@@ -16,7 +16,7 @@ const { Fonts, Colors } = Constant;
 const MyPaymentCard = () => {
   return (
     <Section>
-      <CommonNav title="My Card" color_right_icon={Colors.primaryColor} icon={<MdAddCircle />} fucn={()=> console.log('My Card ')}/>
+      <CommonNav title="My Card" color_right_icon={Colors.primaryColor} icon={<MdAddCircle />} fucn={()=> console.log()}/>
       <div>
         <Slider dots centerMode>
           <CardSlider>
