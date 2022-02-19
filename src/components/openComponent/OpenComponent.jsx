@@ -3,10 +3,13 @@ import styled from "styled-components";
 import bannerImage from "../../media/openBanner.jpg";
 import { BsFillBookmarkFill, BsDot, BsFillStopwatchFill } from "react-icons/bs";
 import { AiFillStar, AiFillDollarCircle } from "react-icons/ai";
+import { BsSearch } from "react-icons/bs";
+import { FaRegShareSquare } from "react-icons/fa";
 import { Constant } from "../../constants";
 import { Link } from "react-router-dom";
 import CardList from "./CardList";
 import SelectFood from "../selectFoodModal/SelectFood";
+import CommonNav from "../CommonNav";
 
 const { Fonts, Colors, Flex,  } = Constant;
 const OpenComponent = () => {
@@ -21,6 +24,7 @@ const OpenComponent = () => {
   return (
     <Section >
       <div className="open_banner">
+      <CommonNav style={{position:'absolute'}} iconColor="#fff" pagelink="/payment" icon={<BsSearch/>} icon1={<FaRegShareSquare/>} />
         <img src={bannerImage} alt="" />
       </div>
       <div className="open_container">
@@ -77,8 +81,8 @@ const OpenComponent = () => {
         </div>
         <div className="open_container_card">
         {
-        exampleApi.map((ex) =>
-        <CardList value={getCardValue}/>
+        exampleApi.map((ex,i) =>
+        <CardList value={getCardValue} key={i}/>
 
         )
         }
