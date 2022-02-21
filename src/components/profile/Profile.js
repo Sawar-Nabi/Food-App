@@ -23,6 +23,16 @@ import { Constant } from "../../constants/index";
 const { Fonts, Colors } = Constant;
 
 const Profile = () => {
+  const [profileTabContent, setProfileTabContent] = useState({
+    username: "Sawar Nabi Dar",
+    password: "Saw**********",
+    email: "sawarnabi2018@gmail.com",
+    phone: 9622656564,
+    address: "Kremshore Budgam 191111",
+    lang: "Kashmiri",
+    gender: "Male",
+  });
+
   const [dialogOpen, setDialogOpen] = useState(false);
   const [passDialogOpen, setPassDialogOpen] = useState(false);
   const [emailDialogOpen, setEmailDialogOpen] = useState(false);
@@ -38,6 +48,15 @@ const Profile = () => {
   const addressDialogClose = () => setAddressDialogOpen(false);
   const langDialogClose = () => setLangDialogOpen(false);
   const genderDialogClose = () => setGenderDialogOpen(false);
+
+  const usernameHandler = (fName, lName) => {
+    setProfileTabContent({...profileTabContent, username: `${fName} ${lName}`})
+  }
+
+  const passwordHandler = (pass) => {
+    setProfileTabContent({...profileTabContent, password: pass})
+  }
+
   return (
     <Card>
       <div className="nav_container">
@@ -61,57 +80,61 @@ const Profile = () => {
           <div className="tabs_wrapper">
             <CardProfile
               leftIcon={<AiOutlineUser />}
-              title="Sawar Nabi"
+              title={profileTabContent.username}
               right_icon={
                 <MdModeEditOutline onClick={() => setDialogOpen(true)} />
               }
             />
             <CardProfile
               leftIcon={<RiLockPasswordLine />}
-              title="Password"
+              title={profileTabContent.password.slice(0,3)}
               right_icon={
                 <IoIosArrowForward onClick={() => setPassDialogOpen(true)} />
               }
+              star={'********'}
             />
             <CardProfile
               leftIcon={<MdOutlineMailOutline />}
-              title="sawarnabi2018@gmail.com"
+              title={profileTabContent.email}
               right_icon={
                 <IoIosArrowForward onClick={() => setEmailDialogOpen(true)} />
               }
             />
             <CardProfile
               leftIcon={<BsTelephone />}
-              title="9622656564"
+              title={profileTabContent.phone}
               right_icon={
                 <IoIosArrowForward onClick={() => setPhoneDialogOpen(true)} />
               }
             />
             <CardProfile
               leftIcon={<HiOutlineLocationMarker />}
-              title="Kremshore Budgam 191111"
+              title={profileTabContent.address}
               right_icon={
                 <IoIosArrowForward onClick={() => setAddressDialogOpen(true)} />
               }
             />
             <CardProfile
               leftIcon={<MdOutlineLanguage />}
-              title="Kashmiri"
+              title={profileTabContent.lang}
               right_icon={
                 <IoIosArrowForward onClick={() => setLangDialogOpen(true)} />
               }
             />
             <CardProfile
               leftIcon={<CgGenderMale />}
-              title="Male"
+              title={profileTabContent.gender}
               right_icon={
                 <IoIosArrowForward onClick={() => setGenderDialogOpen(true)} />
               }
             />
-            <UserNameDialog dialogOpen={dialogOpen} dialogClose={dialogClose} />
+
+            <UserNameDialog dialogOpen={dialogOpen} dialogClose={dialogClose} funcDemo={usernameHandler}/>
+
             <PasswordDialog
               passDialogOpen={passDialogOpen}
               passDialogClose={passDialogClose}
+              funcDemo={passwordHandler}
             />
             <EmailDialog
               emailDialogOpen={emailDialogOpen}
@@ -140,11 +163,11 @@ const Profile = () => {
   );
 };
 
-const CardProfile = ({ leftIcon, title, right_icon }) => {
+const CardProfile = ({ leftIcon, title, right_icon, star }) => {
   return (
     <ProfileCard className="user_name">
       <span>{leftIcon}</span>
-      <span>{title}</span>
+      <span>{title}{star}</span>
       <span style={{ cursor: "pointer" }}>{right_icon}</span>
     </ProfileCard>
   );
