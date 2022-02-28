@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {BiShow} from 'react-icons/bi'
+import { BiShow } from "react-icons/bi";
 import styled from "styled-components";
 import {
   Dialog,
@@ -13,7 +13,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import InputAdornment from '@mui/material/InputAdornment'
+import InputAdornment from "@mui/material/InputAdornment";
 import { TextField } from "@mui/material";
 import { Constant } from "../../constants/index";
 const { Fonts, Colors } = Constant;
@@ -102,7 +102,6 @@ export const PasswordDialog = ({
   const [oldPass, setOldPass] = useState("");
   const [oldPassword, setOldPassword] = useState("Sawar@12345678");
 
-  
   return (
     <Dialog open={passDialogOpen} fullScreen>
       <Section>
@@ -112,23 +111,32 @@ export const PasswordDialog = ({
           </DialogTitle>
           <DialogContent>
             <div style={{ marginBottom: "1rem", marginTop: "1rem" }}>
-              <TextField label="Old Password" fullWidth 
-              value={oldPass}
-              onChange={(e) => setOldPass(e.target.value)}
+              <TextField
+                label="Old Password"
+                fullWidth
+                value={oldPass}
+                onChange={(e) => setOldPass(e.target.value)}
               />
             </div>
             <div style={{ marginBottom: "1rem" }}>
-              <TextField label="New Password" fullWidth value={password} 
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Button style={{borderRadius: '50px', fontSize: '1.5rem'}}><BiShow/></Button>
-                  </InputAdornment>
-                ),
-              }}
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
+              <TextField
+                label="New Password"
+                fullWidth
+                value={password}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Button
+                        style={{ borderRadius: "50px", fontSize: "1.5rem" }}
+                      >
+                        <BiShow />
+                      </Button>
+                    </InputAdornment>
+                  ),
+                }}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div style={{ marginBottom: "1rem" }}>
@@ -139,12 +147,16 @@ export const PasswordDialog = ({
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
-                      <Button style={{borderRadius: '50px', fontSize: '1.5rem'}}><BiShow/></Button>
+                      <Button
+                        style={{ borderRadius: "50px", fontSize: "1.5rem" }}
+                      >
+                        <BiShow />
+                      </Button>
                     </InputAdornment>
                   ),
                 }}
                 onChange={(e) => {
-                  setConPassword(e.target.value)
+                  setConPassword(e.target.value);
                 }}
               />
             </div>
@@ -159,34 +171,40 @@ export const PasswordDialog = ({
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
-                onClick={()=> {
-                  if(password === '' || conPassword === '' || oldPassword === '') {
+                onClick={() => {
+                  if (
+                    password === "" ||
+                    conPassword === "" ||
+                    oldPassword === ""
+                  ) {
                     toast.error("All Fields Required!", {
                       position: "top-center",
                       autoClose: 3000,
                     });
-                  }else if(oldPassword !== oldPass) {
+                  } else if (oldPassword !== oldPass) {
                     toast.error("Old Password Not Matched!", {
                       position: "top-center",
                       autoClose: 3000,
                     });
-                  }else if (password !== conPassword) {
+                  } else if (password !== conPassword) {
                     toast.error("Password Not Matched", {
                       position: "top-center",
                       autoClose: 3000,
-                    });
-                  }else{
-                    funcDemo(password);
+                    }); 
+                  } else {
+                    // funcDemo(password.slice(0, 3).split(/./g, '*'));
+                    funcDemo(password.substring(0, 3) + password.slice(3, password.length).replace(/./g, '*'));
                     toast.success("Password Successfully Updated", {
                       position: "top-center",
                       autoClose: 3000,
-                    })
-                    setPassword('')
-                    setConPassword('')
-                    setOldPass('')
+                    });
+                    setPassword("");
+                    setConPassword("");
+                    setOldPass("");
+                    setOldPassword(password)
                     setTimeout(() => {
-                      passDialogClose()
-                    }, 3000)
+                      passDialogClose();
+                    }, 3000);
                   }
                 }}
               >
@@ -204,7 +222,13 @@ export const PasswordDialog = ({
 
 // Email Dialog
 
-export const EmailDialog = ({ emailDialogOpen, emailDialogClose }) => {
+export const EmailDialog = ({
+  emailDialogOpen,
+  emailDialogClose,
+  funcDemo,
+}) => {
+  const [email, setEmail] = useState("");
+
   return (
     <Dialog open={emailDialogOpen} fullScreen>
       <Section>
@@ -214,7 +238,14 @@ export const EmailDialog = ({ emailDialogOpen, emailDialogClose }) => {
           </DialogTitle>
           <DialogContent>
             <div style={{ marginBottom: "1rem", marginTop: "1rem" }}>
-              <TextField label="Email" fullWidth />
+              <TextField
+                required
+                type="email"
+                label="Email"
+                fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div
               style={{
@@ -227,11 +258,30 @@ export const EmailDialog = ({ emailDialogOpen, emailDialogClose }) => {
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
+                onClick={() => {
+                  if (email === "") {
+                    toast.error("Please Enter Your Email", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
+                  } else {
+                    funcDemo(email);
+                    toast.success("Email Successfully updated", {
+                      position: "top-center",
+                      autoClose: 3000,
+                    });
+                    setEmail("");
+                    setTimeout(() => {
+                      emailDialogClose();
+                    }, 3000);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button onClick={emailDialogClose}>Cancel</Button>
             </div>
+            <ToastContainer />
           </DialogContent>
         </div>
       </Section>
@@ -241,7 +291,12 @@ export const EmailDialog = ({ emailDialogOpen, emailDialogClose }) => {
 
 // Phone Dialog
 
-export const PhoneDialog = ({ phoneDialogOpen, phoneDialogClose }) => {
+export const PhoneDialog = ({
+  phoneDialogOpen,
+  phoneDialogClose,
+  funcDemo,
+}) => {
+  const [phone, setPhone] = useState("");
   return (
     <Dialog open={phoneDialogOpen} fullScreen>
       <Section>
@@ -251,7 +306,13 @@ export const PhoneDialog = ({ phoneDialogOpen, phoneDialogClose }) => {
           </DialogTitle>
           <DialogContent>
             <div style={{ marginBottom: "1rem", marginTop: "1rem" }}>
-              <TextField label="Phone No." fullWidth type="number" />
+              <TextField
+                label="Phone No."
+                fullWidth
+                type="number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
             <div
               style={{
@@ -264,11 +325,30 @@ export const PhoneDialog = ({ phoneDialogOpen, phoneDialogClose }) => {
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
+                onClick={() => {
+                  if (phone === "") {
+                    toast.error("Please Enter Your Phone Number", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
+                  } else {
+                    funcDemo(phone);
+                    toast.success("Phone Number Successfully updated", {
+                      position: "top-center",
+                      autoClose: 3000,
+                    });
+                    setPhone("");
+                    setTimeout(() => {
+                      phoneDialogClose();
+                    }, 3000);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button onClick={phoneDialogClose}>Cancel</Button>
             </div>
+            <ToastContainer />
           </DialogContent>
         </div>
       </Section>
@@ -278,7 +358,12 @@ export const PhoneDialog = ({ phoneDialogOpen, phoneDialogClose }) => {
 
 // Address Dialog
 
-export const AddressDialog = ({ addressDialogOpen, addressDialogClose }) => {
+export const AddressDialog = ({
+  addressDialogOpen,
+  addressDialogClose,
+  funcDemo,
+}) => {
+  const [address, setAddress] = useState("");
   return (
     <Dialog open={addressDialogOpen} fullScreen>
       <Section>
@@ -288,7 +373,12 @@ export const AddressDialog = ({ addressDialogOpen, addressDialogClose }) => {
           </DialogTitle>
           <DialogContent>
             <div style={{ marginBottom: "1rem", marginTop: "1rem" }}>
-              <TextField label="Address" fullWidth />
+              <TextField
+                label="Address"
+                fullWidth
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
             </div>
             <div
               style={{
@@ -301,11 +391,30 @@ export const AddressDialog = ({ addressDialogOpen, addressDialogClose }) => {
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
+                onClick={() => {
+                  if (address === "") {
+                    toast.error("Please Enter Your Address", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
+                  } else {
+                    funcDemo(address);
+                    toast.success("Address Successfully updated", {
+                      position: "top-center",
+                      autoClose: 3000,
+                    });
+                    setAddress("");
+                    setTimeout(() => {
+                      addressDialogClose();
+                    }, 3000);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button onClick={addressDialogClose}>Cancel</Button>
             </div>
+            <ToastContainer />
           </DialogContent>
         </div>
       </Section>
@@ -315,7 +424,8 @@ export const AddressDialog = ({ addressDialogOpen, addressDialogClose }) => {
 
 // Language Dialog
 
-export const Language = ({ langDialogOpen, langDialogClose }) => {
+export const Language = ({ langDialogOpen, langDialogClose, funcDemo }) => {
+  const [lang, setLang] = useState("");
   return (
     <Dialog open={langDialogOpen} fullScreen>
       <Section>
@@ -325,11 +435,16 @@ export const Language = ({ langDialogOpen, langDialogClose }) => {
           </DialogTitle>
           <DialogContent>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Language</InputLabel>
-              <Select>
-                <MenuItem value={15}>Kashmiri</MenuItem>
-                <MenuItem value={20}>English</MenuItem>
-                <MenuItem value={30}>Urdu</MenuItem>
+              <InputLabel>Language</InputLabel>
+              <Select
+                value={lang}
+                onChange={(e) => {
+                  setLang(e.target.value);
+                }}
+              >
+                <MenuItem value={"Kashmiri"}>Kashmiri</MenuItem>
+                <MenuItem value={"English"}>English</MenuItem>
+                <MenuItem value={"Urdu"}>Urdu</MenuItem>
               </Select>
             </FormControl>
             <div
@@ -343,11 +458,32 @@ export const Language = ({ langDialogOpen, langDialogClose }) => {
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
+                onClick={() => {
+                  if (lang === "") {
+                    toast.error("Please Choose Your Language", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
+                    console.log(lang);
+                  } else {
+                    console.log(lang);
+                    funcDemo(lang);
+                    toast.success("Language Successfully updated", {
+                      position: "top-center",
+                      autoClose: 3000,
+                    });
+                    setLang("");
+                    setTimeout(() => {
+                      langDialogClose();
+                    }, 3000);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button onClick={langDialogClose}>Cancel</Button>
             </div>
+            <ToastContainer />
           </DialogContent>
         </div>
       </Section>
@@ -357,7 +493,9 @@ export const Language = ({ langDialogOpen, langDialogClose }) => {
 
 // Gender Dialog
 
-export const Gender = ({ genderDialogOpen, genderDialogClose }) => {
+export const Gender = ({ genderDialogOpen, genderDialogClose, funcDemo }) => {
+  const [gender, setGender] = useState("");
+
   return (
     <Dialog open={genderDialogOpen} fullScreen>
       <Section>
@@ -367,11 +505,16 @@ export const Gender = ({ genderDialogOpen, genderDialogClose }) => {
           </DialogTitle>
           <DialogContent>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-              <Select>
-                <MenuItem value={15}>Male</MenuItem>
-                <MenuItem value={20}>Female</MenuItem>
-                <MenuItem value={30}>Other</MenuItem>
+              <InputLabel>Gender</InputLabel>
+              <Select
+                value={gender}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+              >
+                <MenuItem value={"Male"}>Male</MenuItem>
+                <MenuItem value={"Female"}>Female</MenuItem>
+                <MenuItem value={"Other"}>Other</MenuItem>
               </Select>
             </FormControl>
             <div
@@ -385,11 +528,30 @@ export const Gender = ({ genderDialogOpen, genderDialogClose }) => {
               <Button
                 variant="contained"
                 style={{ background: Colors.primaryColor }}
+                onClick={() => {
+                  if (gender === "") {
+                    toast.error("Please Choose Your Gender", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
+                  } else {
+                    funcDemo(gender);
+                    toast.success("Gender Successfully updated", {
+                      position: "top-center",
+                      autoClose: 3000,
+                    });
+                    setGender("");
+                    setTimeout(() => {
+                      genderDialogClose();
+                    }, 3000);
+                  }
+                }}
               >
                 Save
               </Button>
               <Button onClick={genderDialogClose}>Cancel</Button>
             </div>
+            <ToastContainer />
           </DialogContent>
         </div>
       </Section>

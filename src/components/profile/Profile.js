@@ -57,6 +57,26 @@ const Profile = () => {
     setProfileTabContent({...profileTabContent, password: pass})
   }
 
+  const emailHandler = (email) => {
+    setProfileTabContent({...profileTabContent, email: email})
+  }
+
+  const phoneHandler = (phone) => {
+    setProfileTabContent({...profileTabContent, phone: phone})
+  }
+
+  const addressHandler = (address) => {
+    setProfileTabContent({...profileTabContent, address: address})
+  }
+
+  const langHandler = (lang) => {
+    setProfileTabContent({...profileTabContent, lang: lang})
+  }
+
+  const genderHandler = (gender) => {
+    setProfileTabContent({...profileTabContent, gender: gender})
+  }
+
   return (
     <Card>
       <div className="nav_container">
@@ -87,11 +107,10 @@ const Profile = () => {
             />
             <CardProfile
               leftIcon={<RiLockPasswordLine />}
-              title={profileTabContent.password.slice(0,3)}
+              title={profileTabContent.password}
               right_icon={
                 <IoIosArrowForward onClick={() => setPassDialogOpen(true)} />
               }
-              star={'********'}
             />
             <CardProfile
               leftIcon={<MdOutlineMailOutline />}
@@ -139,22 +158,27 @@ const Profile = () => {
             <EmailDialog
               emailDialogOpen={emailDialogOpen}
               emailDialogClose={emailDialogClose}
+              funcDemo={emailHandler}
             />
             <PhoneDialog
               phoneDialogOpen={phoneDialogOpen}
               phoneDialogClose={phoneDialogClose}
+              funcDemo={phoneHandler}
             />
             <AddressDialog
               addressDialogOpen={addressDialogOpen}
               addressDialogClose={addressDialogClose}
+              funcDemo={addressHandler}
             />
             <Language
               langDialogOpen={langDialogOpen}
               langDialogClose={langDialogClose}
+              funcDemo={langHandler}
             />
             <Gender
               genderDialogOpen={genderDialogOpen}
               genderDialogClose={genderDialogClose}
+              funcDemo={genderHandler}
             />
           </div>
         </div>
@@ -167,7 +191,7 @@ const CardProfile = ({ leftIcon, title, right_icon, star }) => {
   return (
     <ProfileCard className="user_name">
       <span>{leftIcon}</span>
-      <span>{title}{star}</span>
+      <span>{title}</span>
       <span style={{ cursor: "pointer" }}>{right_icon}</span>
     </ProfileCard>
   );
