@@ -54,7 +54,7 @@ const OpenComponent = () => {
               <span>free delivery</span>
             </div>
             <div className="thirty_min">
-              <BsFillStopwatchFill className="thirty_min_icon" />{" "}
+              <BsFillStopwatchFill className="thirty_min_icon" />
               <span>thirty min</span>
             </div>
             <div className="take_away" >take away</div>

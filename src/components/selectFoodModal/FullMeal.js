@@ -12,42 +12,54 @@ const FullMeal = () => {
   const example = [0, 1, 2, 3];
   const [checkIcon, setCheckIcon] = useState([]);
 
-  const toggleIconCheck = (e) => {
-    setCheckIcon((pre) =>
-    [...pre, e.target.id]
-    );
-    
+  const toggleIconCheck = (index, e) => {
+  //  console.log(checkIcon, index)
+  console.log(checkIcon.length);
+   
+  const ckeckdublicate = checkIcon.includes(index);
+   if(!ckeckdublicate) {
+     setCheckIcon([...checkIcon, index])
+     console.log('hiiii');
+    }else if(ckeckdublicate){
+      const updatedEle = checkIcon.filter((elem) => {
+        return index !== elem
+      })
+      console.log('byeee');
+      setCheckIcon(updatedEle)
+    }
   };
   console.log(checkIcon);
+
 
   return (
     <Section>
       <p>sides</p>
       <div className="sidesCardsDiv">
         {example.map((ex, i) => (
-          <div className="cardIcon"  key={i} >
+          <div className="cardIcon" key={i}>
             <input
               type="checkbox"
               name={i}
               id={i}
               value={checkIcon}
-              onChange={toggleIconCheck}
+              onChange={(e) => toggleIconCheck(i, e)}
             />
+
             <label htmlFor={i}>
               {/* <img src={FrenchFriesIcon} alt="" /> */}
             </label>
-            { checkIcon.indexOf('1') === i ? (
-              <div>
+            {checkIcon.includes(i)? (
+              <div> 
                 <GiCheckMark />
-              </div> 
-            ): null}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
       <p>beverages</p>
       <div className="beverageDiv">
         {example.map((ex, i) => (
-          <div className="cardIcon">
+          <div className="cardIcon" key={i}>
             <label htmlFor={i}>
               <img src={ColaIcon} alt="" />
             </label>
@@ -81,10 +93,10 @@ const Section = styled.section`
       label {
         position: absolute;
         width: inherit;
-          height: inherit;
-          border-radius: inherit;
-          top: 0;
-          left: 0;
+        height: inherit;
+        border-radius: inherit;
+        top: 0;
+        left: 0;
         img {
           width: inherit;
           height: inherit;
