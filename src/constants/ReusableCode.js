@@ -8,7 +8,7 @@ export const Flex = css`
 `;
 export const CardListStyle = css`
   padding: 1rem;
-  box-shadow: 0.1rem 0.1rem 1rem #ccc;
+  box-shadow: 0rem 0.1rem 1rem #e6e6e6;
   margin-bottom: 1rem;
   border-radius: 1rem;
 `;
@@ -19,7 +19,7 @@ export const Grid = css`
 export const ButtonP = css`
   gap: 3rem;
   text-transform: capitalize;
-  border-radius: 1rem;
+  border-radius: .7rem;
   border: none;
   background-color: ${Colors.primaryColor};
   color: #fff;

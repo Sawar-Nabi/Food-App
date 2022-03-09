@@ -25,16 +25,16 @@ const CardList = ({value}) => {
         </div>
         <div className="card_list_content">
           <h1>chicken burger</h1>
-          <p>snadwich features two savory flame-grilled beef patties</p>
+          <p>sandwich features two savory flame-grilled beef patties</p>
           <div className="card_Price_Tag">
             <h3>$ 15.00</h3>
-            {/* <button>
+            <button>
               <AiOutlineMinusCircle className="add_Icon" />
             </button>
             <span>{openCount}</span>
             <button>
               <AiFillPlusCircle className="add_Icon" />
-            </button> */}
+            </button>
           </div>
         </div>
       </div>
