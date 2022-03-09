@@ -62,7 +62,7 @@ const SelectFood = ({value}) => {
           </div>
         </div>
 
-         { slider >= 50 ?<FullMeal/> : null}
+         { slider >= 50 && <FullMeal/>}
         <div className="addToCart">
           <button>add to cart <span>${15 * counter}.00</span></button>
         </div>
@@ -208,7 +208,7 @@ const Section = styled.section`
   }
   @media (max-width: 1024px) {
     .Select_Food_Modal {
-    width: 90%;
+    width: 95%;
     padding: 1.5rem 1rem;
 
     .arrowicon {
@@ -275,6 +275,175 @@ const Section = styled.section`
         padding: .7em 1.7em;
         font-size: 1.2rem;
         gap: 10rem;
+        
+
+      }
+    }
+  }
+
+  }
+  @media (max-width: 767px) {
+    .Select_Food_Modal {
+    width: 98%;
+    padding: 1rem 1rem;
+
+    .arrowicon {
+      font-size: 2rem;
+    }
+    .card {
+      gap: 1rem;
+      .cardIcon {
+        width: 6rem;
+        height: 6rem;
+        img {
+          border-radius: .5rem;
+        }
+      }
+      .cardContent {
+        line-height: 1.5;
+        h2 {
+          color: ${Colors.helperColor};
+          font-size: 1.3rem;
+
+        }
+        h4 {
+          color: ${Colors.secondaryColor};
+          font-size:1rem;
+        }
+        h3{
+          font-size: 1.1rem;
+        }
+       
+      }
+    }
+    .quantity_Div {
+      padding: 0rem;
+
+      p {
+        font-size: 1.1rem;
+      }
+      .quantityIcons {
+        gap: 1rem;
+        font-size: 1.2rem;
+       
+        
+      }
+    }
+    .mealSize{
+      padding: 1.5rem 0rem;
+
+      p {
+        font-size: 1rem;
+        flex: 1;
+      }
+      .sizeRange{
+        input{
+          width: 80%;
+          height: 2px;
+          margin-bottom: 1rem;
+
+          &::-webkit-slider-thumb{
+            border: .6rem solid ${Colors.secondaryColor};
+            width: .4rem;
+            height: .4rem;
+
+          }
+        }
+        .rangeValue{
+            width: 80%;
+            span{
+              font-size: .9rem;
+            }
+        }
+      }
+    }
+    .addToCart{
+      padding: .5rem;
+      button{
+        padding: .7em 1.7em;
+        font-size: 1.2rem;
+        gap: 7rem;
+        
+
+      }
+    }
+  }
+
+  }
+  @media (max-width: 520px) {
+    .Select_Food_Modal {
+    width: 98%;
+    padding: .5rem;
+
+    .card {
+      gap: .5rem;
+      .cardIcon {
+        width: 5rem;
+        height: 5rem;
+       
+      }
+      .cardContent {
+        line-height: 1.5;
+        h2 {
+          font-size: 1rem;
+
+        }
+        h4 {
+          font-size:.8rem;
+        }
+        h3{
+          font-size: .9rem;
+        }
+       
+      }
+    }
+    .quantity_Div {
+      padding: 0rem 1rem 0 0 ;
+
+      p {
+        font-size: .9rem;
+      }
+      .quantityIcons {
+        gap: 1rem;
+        font-size: 1.2rem;
+       
+        
+      }
+    }
+    .mealSize{
+      padding: 1.5rem 0rem;
+
+      p {
+        font-size: 1rem;
+        flex: 1;
+      }
+      .sizeRange{
+        input{
+          width: 80%;
+          height: 2px;
+          margin-bottom: 1rem;
+
+          &::-webkit-slider-thumb{
+            border: .6rem solid ${Colors.secondaryColor};
+            width: .4rem;
+            height: .4rem;
+
+          }
+        }
+        .rangeValue{
+            width: 80%;
+            span{
+              font-size: .9rem;
+            }
+        }
+      }
+    }
+    .addToCart{
+      padding: .5rem;
+      button{
+        padding: .7em 1.7em;
+        font-size: 1.2rem;
+        gap: 7rem;
         
 
       }
