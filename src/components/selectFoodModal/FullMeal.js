@@ -9,6 +9,7 @@ import { Constant } from "../../constants";
 const { Colors, Flex, CardListStyle } = Constant;
 
 const FullMeal = () => {
+  
   const example = [0, 1, 2, 3];
   const example1 = [0, 1, 2, 3];
   const [checkIcon, setCheckIcon] = useState([]);

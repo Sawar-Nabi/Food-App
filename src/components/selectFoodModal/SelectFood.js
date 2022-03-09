@@ -415,9 +415,9 @@ const Section = styled.section`
 
       p {
         font-size: 1rem;
-        flex: 1;
       }
       .sizeRange{
+        flex: 2;
         input{
           width: 80%;
           height: 2px;
@@ -433,7 +433,7 @@ const Section = styled.section`
         .rangeValue{
             width: 80%;
             span{
-              font-size: .9rem;
+              font-size: .7rem;
             }
         }
       }
@@ -443,7 +443,7 @@ const Section = styled.section`
       button{
         padding: .7em 1.7em;
         font-size: 1.2rem;
-        gap: 7rem;
+        gap: 2rem;
         
 
       }
