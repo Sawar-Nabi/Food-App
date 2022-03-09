@@ -8,24 +8,32 @@ const { Fonts, Colors } = Constant;
 const CommonNav = (props) => {
   const { title, color, icon, fucn, color_right_icon } = props;
   return (
-    <Nav>
-      <Link to="" className="nav_back">
-        <IoIosArrowBack />
-      </Link>
-      <Link to="" className="" style={{ color: color, fontWeight: "500" }}>
-        {title} {fucn()}
-      </Link>
-      <Link to="" className="" style={{ color : color_right_icon }}>
-        {icon}
-      </Link>
-    </Nav>
+    <>
+      <Nav>
+        <Link to="" className="nav_back">
+          <IoIosArrowBack />
+        </Link>
+        <Link to="" className="" style={{ color: color, fontWeight: "500" }}>
+          {title} {fucn()}
+        </Link>
+        <Link to="" className="" style={{ color: color_right_icon }}>
+          {icon}
+        </Link>
+      </Nav>
+      <MarginComponent/>
+    </>
   );
 };
 
 export default CommonNav;
 
+export const MarginComponent = () => {
+  return <div style={{ width: "100%", height: "3rem" }}></div>;
+};
+
 const Nav = styled.nav`
   /* background-color: red; */
+  position: fixed;
   width: 100%;
   padding: 0.5rem 3rem;
   display: flex;
