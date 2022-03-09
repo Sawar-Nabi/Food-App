@@ -15,6 +15,8 @@ const OpenComponent = () => {
   const [count, setcount] = useState(false);
   const getCardValue = (value) =>{
     setcount(value)
+
+    
   }
 
 
